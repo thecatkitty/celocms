@@ -45,7 +45,7 @@
   else $ws['Page'] = $ws['HomePage'];
   
   // Wczytaj pamięć podręczną
-  $uri = ltrim($uri, '/');
+  $uri = preg_replace('/\/?([^\?]*).*?/', '$1', $uri);
   if(in_cache($uri, $lang['code'], $ws['Theme']))
     $content = get_cached($uri, $lang['code'], $ws['Theme']);
   
