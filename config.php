@@ -8,7 +8,7 @@
     
     // Informacje do stopki
     //'Address' => '',
-    //'Contact' => '',
+    'Contact' => 'kontakt(at)matriksoft.tczew.pl',
     'Social' => array(
       'facebook' => 'https://www.facebook.com/pages/Projekt-Matriksoft-Oprogramowanie/478939018949835'
     ),

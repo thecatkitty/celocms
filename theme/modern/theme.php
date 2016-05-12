@@ -50,7 +50,11 @@
     
     $ret = '';
     foreach($ws['Social'] as $name => $href) {
-      $ret .= '<li><a href="' . $href . '"><i class="fa fa-' . $name . '"></i></a></li>';
+      $ret .= '<li><a href="' . $href . '">';
+      if($param == 'icon') $ret .= '<i class="fa fa-';
+      $ret .= $name;
+      if($param == 'icon') $ret .= '"></i>';
+      $ret .= '</a></li>';
     }
     return $ret;
   };
