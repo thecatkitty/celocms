@@ -19,12 +19,12 @@
     $ret = '';
     foreach($menu as $item) {
       $add = '';
-      if($item['href'] == $ws['Page']) $add = ' style="color: white"';
+      if($item['href'] == $ws['Page']) $add = ' class="current"';
       $ret .= '<li><a href="' . $ws['PATH_ROOT'] . $item['href'] . '"' . $add . '>' .$item['title'] . '</a></li>';
       if($add != '') $ret .= '{?PageMenu ?}';
     }
     if(!strpos($ret, '{?PageMenu ?}'))
-      $ret .= '<li><a style="color: white">' .$page->title . '</a></li>' . '{?PageMenu ?}';
+      $ret .= '<li><a class="current">' .$page->title . '</a></li>' . '{?PageMenu ?}';
     return $ret;
   };
   
@@ -38,7 +38,7 @@
       $pagemenu = true;
       foreach($page->sections as $i => $section) {
         if($section->short != '') 
-          $ret .= '<li><a class="smoothscroll" href="#' . $section->id . '">' . $section->short . '</a></li>';
+          $ret .= '<li class="local"><a class="smoothscroll" href="#' . $section->id . '">' . $section->short . '</a></li>';
       }
     }
     
