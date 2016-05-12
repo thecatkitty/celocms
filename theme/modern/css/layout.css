@@ -471,14 +471,14 @@ ul.features li:nth-child(even) { }
 }
 
 /*	Blockquotes */
-blockquote {
+.alternate blockquote {
    margin: 0 0px 30px 0px;
    padding-left: 0;
    position: relative;   
 }
-blockquote:before { content: none; }
-blockquote p {
-   font-family:;
+.alternate blockquote:before { content: none; }
+.alternate blockquote p {
+   font-family: serif;
    font-weight: bold;
    font-style: normal;
    color: #fff;
@@ -486,16 +486,16 @@ blockquote p {
    font-size: 26px;
    line-height: 42px;   
 }
-blockquote cite {
+.alternate blockquote cite {
    display: block;
    font-size: 12px;
    font-style: normal;
    line-height: 18px;
    color: #fff;
 }
-blockquote cite:before { content: "\2014 \0020"; }
-blockquote cite a,
-blockquote cite a:visited { color: #8B9798; border: none }
+.alternate blockquote cite:before { content: "\2014 \0020"; }
+.alternate blockquote cite a,
+.alternate blockquote cite a:visited { color: #8B9798; border: none }
 
 /* Flex Slider
 /* ------------------------------------------------------------------ */
