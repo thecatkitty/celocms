@@ -18,6 +18,7 @@
     // Ustawienia
     'Theme' => 'modern',
     'HomePage' => 'home',
+    'Languages' => 'pl|en',
     'Language' => 'pl',
     'CacheTime' => 18000,
     

@@ -19,6 +19,17 @@
       
   // Wczytaj język
   set_language($ws['Language']);
+  if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    $acc_langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+    $langs = explode('|', $ws['Languages']);
+    foreach($acc_langs as $al) foreach($langs as $l) {
+      $al = explode(';', $al)[0];
+      if($al == $l) {
+        set_language($al);
+        break;
+      }
+    }
+  }
   if(nachama('lang')) set_language(get_nachama('lang'));
       
   // Wczytaj motyw

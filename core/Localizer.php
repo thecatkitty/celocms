@@ -5,6 +5,7 @@
     global $ws;
     global $lang;
     
+    if(!preg_match('/^[\w-]+$/', $code)) return false;
     $filename = $ws['PATH_LOCALE'] . $code . '.json';
     if(!file_exists($filename)) return false;
     $lang = json_decode(file_get_contents($filename), true);
