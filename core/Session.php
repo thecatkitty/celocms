@@ -1,10 +1,17 @@
 <?php
   function nachama($name) {
-    return isset($_GET[$name]);
+    return isset($_GET[$name]) || isset($_SESSION[$name]);
   }
 
   function get_nachama($name, $default = false) {
-    return nachama($name) ? $_GET[$name] : $default;
+    if(!nachama($name)) return $default;
+    
+    if(isset($_SESSION[$name]))
+      return $_SESSION[$name];
+    else {
+      session_register('name');
+      $_SESSION[$name] = $_GET[$name];
+    }
   }
   
   function ishttp1() {

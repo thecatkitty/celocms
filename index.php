@@ -1,5 +1,6 @@
 <?php
   $t_start = microtime();
+  session_start();
   $page = true;
   
   $uri = $_SERVER['REQUEST_URI'];
