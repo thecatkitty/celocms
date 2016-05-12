@@ -16,8 +16,6 @@
           $this->path = $ws['PATH_CONTENT'] . $lang['code'] . '/' . $id . '/';
         else throw new HttpError(403);
       
-        die($this->path);
-      
         if(!file_exists($this->path))
           $this->path = str_replace('/' . $lang['code'] . '/', '/' . $ws['Language'] . '/', $this->path);
         if(!file_exists($this->path)) throw new HttpError(404);
