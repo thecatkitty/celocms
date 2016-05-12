@@ -6,12 +6,10 @@
   function get_nachama($name, $default = false) {
     if(!nachama($name)) return $default;
     
-    if(isset($_SESSION[$name]))
-      return $_SESSION[$name];
-    else {
-      session_register('name');
+    if(!isset($_SESSION[$name]))
       $_SESSION[$name] = $_GET[$name];
-    }
+      
+    return $_SESSION[$name];
   }
   
   function ishttp1() {
