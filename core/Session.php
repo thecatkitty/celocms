@@ -5,10 +5,8 @@
 
   function get_nachama($name, $default = false) {
     if(!nachama($name)) return $default;
-    
-    if(!isset($_SESSION[$name]))
+    if(isset($_GET[$name]))
       $_SESSION[$name] = $_GET[$name];
-      
     return $_SESSION[$name];
   }
   

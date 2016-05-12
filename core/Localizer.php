@@ -16,7 +16,6 @@
   }
   
   function getValueFromPath($arr, $path) {
-    // todo: add checks on $path
     $dest = $arr;
     $finalKey = array_pop($path);
     foreach ($path as $key) {
@@ -32,11 +31,6 @@
     $toks = explode('.', $str);
     $ret = getValueFromPath($lang, $toks);
     
-    //foreach($toks as $i => $part) {
-      //if(array_key_exists($part, ${$php_name}))
-      //  $php_name .= '[\'' . $part . '\']';
-      //else return $str;
-    //}
     return $ret;
   }
   
