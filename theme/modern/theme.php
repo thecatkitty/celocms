@@ -20,11 +20,11 @@
     foreach($menu as $item) {
       $add = '';
       if($item['href'] == $ws['Page']) $add = ' class="current"';
-      $ret .= '<li><a href="' . $ws['PATH_ROOT'] . $item['href'] . '"' . $add . '>' .$item['title'] . '</a></li>';
+      $ret .= '<li' . $add . '><a href="' . $ws['PATH_ROOT'] . $item['href'] . '">' .$item['title'] . '</a></li>';
       if($add != '') $ret .= '{?PageMenu ?}';
     }
     if(!strpos($ret, '{?PageMenu ?}'))
-      $ret .= '<li><a class="current">' .$page->title . '</a></li>' . '{?PageMenu ?}';
+      $ret .= '<li class="current"><a>' .$page->title . '</a></li>' . '{?PageMenu ?}';
     return $ret;
   };
   

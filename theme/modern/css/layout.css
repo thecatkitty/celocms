@@ -153,7 +153,9 @@ ul#nav li a {
 }
 
 ul#nav li.local { background: #10999E url(../img/escheresque.png); }
+ul#nav.mobile li.local { background: transparent; }
 ul#nav li.local a { color: silver; }
+ul#nav.mobile li.local a { color: #10999E; }
 
 ul#nav li a:hover { color: #fff; }
 ul#nav li a:active { background-color: transparent !important; }
