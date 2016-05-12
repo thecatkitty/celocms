@@ -2,6 +2,8 @@
   $t_start = microtime();
   $page = true;
   
+  $uri = $_SERVER['REQUEST_URI'];
+  
   // Wczytaj konfigurację
   require_once('config.php');
   $ws['PHP_VERSION'] = phpversion();
@@ -24,12 +26,16 @@
   require_once($ws['ThemePath'] . 'theme.php');
   
   // Wczytaj stronę
-  if(isset($_SERVER['REDIRECT_URL'])) $ws['Page'] = str_replace($ws['PATH_ROOT'], '', $_SERVER['REDIRECT_URL']);
+  if(isset($_SERVER['REDIRECT_URL'])) {
+    $uri = $_SERVER['REDIRECT_URL'];
+    $ws['Page'] = str_replace($ws['PATH_ROOT'], '', $uri);
+  }
   else $ws['Page'] = $ws['HomePage'];
   
   // Wczytaj pamięć podręczną
-  if(in_cache($ws['Page'], $lang['code'], $ws['Theme']))
-    $content = get_cached($ws['Page'], $lang['code'], $ws['Theme']);
+  $uri = ltrim($uri, '/');
+  if(in_cache($uri, $lang['code'], $ws['Theme']))
+    $content = get_cached($uri, $lang['code'], $ws['Theme']);
   
   else {
     // Wczytaj menu
@@ -85,7 +91,7 @@
     $content = compress_html($content);
     
     if($ws['Page'] != 'error')
-      put_cached($ws['Page'], $lang['code'], $ws['Theme'], $content);
+      put_cached($uri, $lang['code'], $ws['Theme'], $content);
   }
   
   echo $content;
