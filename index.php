@@ -42,7 +42,7 @@
   // Wczytaj stronę
   if(isset($_SERVER['REDIRECT_URL'])) {
     $uri = $_SERVER['REDIRECT_URL'];
-    $ws['Page'] = str_replace($ws['PATH_ROOT'], '', $uri);
+    $ws['Page'] = substr($uri, strlen($ws['PATH_ROOT']));
   }
   else $ws['Page'] = $ws['HomePage'];
   die($ws['Page']);
