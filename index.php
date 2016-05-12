@@ -45,7 +45,6 @@
     $ws['Page'] = substr($uri, strlen($ws['PATH_ROOT']));
   }
   else $ws['Page'] = $ws['HomePage'];
-  die($ws['Page']);
   
   // Wczytaj pamięć podręczną
   $uri = preg_replace('/\/?([^\?]*).*?/', '$1', $uri);
