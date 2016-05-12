@@ -16,7 +16,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php [L]
 
-RewriteRule ^(cache|core|locale)/(.*) error [L]
+RewriteRule ^(\.git|cache|core|locale)/(.*) error [L]
 RewriteRule ^(theme|text)/(.*)\.(txt|md|html|yaml|php|twig|sh|bat)$ error [L]
 
 Options -Indexes
