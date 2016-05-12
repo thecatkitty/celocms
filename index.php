@@ -22,11 +22,13 @@
   if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     $acc_langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     $langs = explode('|', $ws['Languages']);
-    foreach($acc_langs as $al) foreach($langs as $l) {
-      $al = explode(';', $al)[0];
-      if($al == $l) {
-        set_language($al);
-        break;
+    foreach($acc_langs as $al) {
+      $al = preg_replace('/^([a-z]{2,3})(-[a-zA-Z]+)*$/', '$1', $al);
+      foreach($langs as $l) {
+        if($al == $l) {
+          set_language($al);
+          break;
+        }
       }
     }
   }
