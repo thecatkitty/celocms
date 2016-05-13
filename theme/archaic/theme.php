@@ -46,9 +46,9 @@
     $doc = strtr($doc, $map);
     
     // Zamień odwołania do PNG na GIF
-    $pattern = '/<img src="([\w\/-]+)\.png"/';
+    $pattern = '/<img([^<>]*) src="([\w\/-]+)\.png"/';
     while(preg_match($pattern, $doc))
-      $doc = preg_replace($pattern, '<img src="${1}.gif"', $doc);
+      $doc = preg_replace($pattern, '<img${1} src="${2}.gif"', $doc);
     
     // Zamień tagi XHTML na HTML
     $pattern = '/<(img|br)([^<>]*)\/>/';
