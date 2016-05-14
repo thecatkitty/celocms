@@ -81,11 +81,16 @@
     global $page;
     
     $ret = '';
+    $first = true;
     if(!count($page->sections))
       $ret .= '<b>{lang.archaic.jumpto}:</b> ';
     foreach($page->sections as $i => $section) {
-      if($i) $ret .= ' | ';
-      $ret .= '<a href="#' . $section->id . '">' . $section->short . '</a>';
+      if($section->short != '') {
+        if($first) $first = false;
+        else $ret .= ' | ';
+        $ret .= '<a href="#' . $section->id . '">' . $section->short . '</a>';
+      }
+      
     }
     return $ret;
   };
