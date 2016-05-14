@@ -45,6 +45,19 @@
     return $ret;
   };
   
+  $wsp['LangMenu'] = function($str) {
+    global $ws;
+      
+    $ret = '';
+    $langs = explode('|', $ws['Languages']);
+    foreach($langs as $i => $l) {
+      if($i) $ret .= '| ';
+      $ll = json_decode(file_get_contents($ws['PATH_LOCALE'] . $l . '.json'), true);
+      $ret .= '<a href="' . $ws['PATH_ROOT'] . $ws['Page'] . '?lang=' . $l . '">' . $ll['name'] . '</a> ';
+    }
+    return $ret;
+  };
+  
   $wsp['SocialMenu'] = function($param) {
     global $ws;
     
