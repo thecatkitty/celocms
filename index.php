@@ -111,4 +111,4 @@
   echo $content;
 ?>
 
-<!-- Wykonano w <?=round(microtime()-$t_start, 5)?> milisekund. -->
+<!-- <?=$lang['generated']?> <?=round(microtime()-$t_start, 5)?> <?=$lang['milliseconds']?>. -->

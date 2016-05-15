@@ -22,8 +22,8 @@
     global $lang;
     $filename = get_cached_name($pagename, $language, $theme);
     if(file_exists($filename)) unlink($filename);
-    $doc .= "\r\n" . '<!-- Kopia z pamięci podręcznej wygenerowana ';
-    $doc .= date('j ') . $lang['months']['genitive'][date('n')-1] . date(' o, H:i:s T');
+    $doc .= "\r\n" . '<!-- ' . $lang['cached'];
+    $doc .= date(' j ') . $lang['months']['genitive'][date('n')-1] . date(' o, H:i:s T');
     $doc .= '. -->';
     file_put_contents($filename, $doc);
   }
