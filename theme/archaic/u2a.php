@@ -8,8 +8,8 @@
 	// Latin Extended-A
 	0x0131 => 'i', 0x0138 => 'q', 0x014A => 'NG', 'ng', 0x017F => 's',
 	// Latin Extended-B
-	// 0250—02AF IPA Extensions 
 	0x01F2 => 'Dz',
+	// 0250—02AF IPA Extensions 
     // 02B0—02FF Spacing Modifier Letters 
 	0x02B9 => '\'', '"', '\'', '\'', '\'',
     // 0300—036F Combining Diacritical Marks 
