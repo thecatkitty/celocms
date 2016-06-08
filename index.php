@@ -1,4 +1,10 @@
 <?php
+  if($_SERVER['HTTP_HOST'] == 'www.celones.pl') {
+    header("HTTP/1.0 301 Moved Permamently");
+    header("Location: http://celones.pl");
+    exit();
+  }
+
   $t_start = microtime();
   session_start();
   $page = true;
@@ -8,8 +14,8 @@
   // Wczytaj konfigurację
   require_once('config.php');
   $ws['PHP_VERSION'] = phpversion();
-  $ws['PHP_SERVER'] = explode(' ', $_SERVER["SERVER_SOFTWARE"])[0];
-  $ws['PHP_OS'] = explode(' ', $_SERVER["SERVER_SOFTWARE"])[1];
+  $ws['PHP_SERVER'] = explode(' ', $_SERVER['SERVER_SOFTWARE'])[0];
+  $ws['PHP_OS'] = explode(' ', $_SERVER['SERVER_SOFTWARE'])[1];
   
   // Wczytaj moduły
   $dir = opendir($ws['PATH_CORE']);
