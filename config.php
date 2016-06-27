@@ -18,7 +18,7 @@
     // Ustawienia
     'Theme' => 'modern',
     'HomePage' => 'home',
-    'Languages' => 'pl|en',
+    'Languages' => 'pl|en|pl-kociewie',
     'Language' => 'pl',
     'CacheTime' => 18000,
     
