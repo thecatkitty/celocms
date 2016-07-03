@@ -16,5 +16,7 @@
 
     if(!preg_match("/Trident|Gecko/", $_SERVER['HTTP_USER_AGENT']))
       return true;
+
+    return false;
   }
 ?>
