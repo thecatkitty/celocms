@@ -41,7 +41,7 @@
   if(nachama('lang')) set_language(get_nachama('lang'));
       
   // Wczytaj motyw
-  $ws['Theme'] = get_nachama('theme', ishttp1() ? 'archaic' : $ws['Theme']);
+  $ws['Theme'] = get_nachama('theme', isarchaic() ? 'archaic' : $ws['Theme']);
   $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
   require_once($ws['ThemePath'] . 'theme.php');
   

@@ -10,7 +10,11 @@
     return $_SESSION[$name];
   }
   
-  function ishttp1() {
-    return $_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0';
+  function isarchaic() {
+    if($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0')
+      return true;
+
+    if(!preg_match("/Trident|Gecko/", $_SERVER['HTTP_USER_AGENT']))
+      return true;
   }
 ?>
