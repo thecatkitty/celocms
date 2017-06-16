@@ -48,6 +48,8 @@
   else {
     $ws['Theme'] = 'archaic';
     $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
+    $_SESSION['theme'] = 'archaic';
+    require_once($ws['ThemePath'] . 'theme.php');
   }
   
   // Wczytaj stronę
