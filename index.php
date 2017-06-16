@@ -1,7 +1,7 @@
 <?php
   if($_SERVER['HTTP_HOST'] == 'www.celones.pl') {
     header("HTTP/1.0 301 Moved Permamently");
-    header("Location: http://celones.pl");
+    header("Location: https://celones.pl");
     exit();
   }
 
@@ -53,7 +53,8 @@
   else $ws['Page'] = $ws['HomePage'];
   
   // Wczytaj pamięć podręczną
-  $uri = preg_replace('/\/?([^\?]*).*?/', '$1', $uri);
+  //$uri = preg_replace('/\/?([^\?]*).*?/', '$1', $uri);
+  $uri = $ws['Page'];
   if(in_cache($uri, $lang['code'], $ws['Theme']))
     $content = get_cached($uri, $lang['code'], $ws['Theme']);
   
