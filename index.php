@@ -43,7 +43,12 @@
   // Wczytaj motyw
   $ws['Theme'] = get_nachama('theme', isarchaic() ? 'archaic' : $ws['Theme']);
   $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
-  require_once($ws['ThemePath'] . 'theme.php');
+  if(file_exists($ws['ThemePath'] . 'theme.php'))
+    require_once($ws['ThemePath'] . 'theme.php');
+  else {
+    $ws['Theme'] = 'archaic';
+    $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
+  }
   
   // Wczytaj stronę
   if(isset($_SERVER['REDIRECT_URL'])) {
@@ -53,7 +58,6 @@
   else $ws['Page'] = $ws['HomePage'];
   
   // Wczytaj pamięć podręczną
-  //$uri = preg_replace('/\/?([^\?]*).*?/', '$1', $uri);
   $uri = $ws['Page'];
   if(in_cache($uri, $lang['code'], $ws['Theme']))
     $content = get_cached($uri, $lang['code'], $ws['Theme']);
