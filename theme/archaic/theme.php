@@ -23,6 +23,11 @@
     $pattern = '/<(img|br)([^<>]*)\/>/';
     while(preg_match($pattern, $doc))
       $doc = preg_replace($pattern, '<${1}${2}>', $doc);
+
+    // Usuń niewspierane atrybuty
+    $pattern = '/<([^<>]+) ((lang|id|class|title)="[^<>"]+") ([^<>]*)>/s';
+    while(preg_match($pattern, $doc))
+      $doc = preg_replace($pattern, '<${1}${3}>', $doc);
     
     // Usuń obramowania linków obrazkowych
     $pattern = '/(<a[^<>]* href="[^<>]+"[^<>]*>.*<img[^<>]*)[^"]>(.*)<\/a>/s';
