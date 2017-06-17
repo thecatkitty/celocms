@@ -1,10 +1,4 @@
 <?php
-  if($_SERVER['HTTP_HOST'] == 'www.celones.pl') {
-    header("HTTP/1.0 301 Moved Permamently");
-    header("Location: https://celones.pl");
-    exit();
-  }
-
   $t_start = microtime();
   session_start();
   $page = true;
@@ -22,6 +16,13 @@
   while($filename = readdir($dir))
     if(preg_match('/^(\w+).php$/', $filename, $matches))
       require_once($ws['PATH_CORE'] . $matches[1] . '.php');
+
+  // Przekieruj na połączenie szyfrowane
+  if($_SERVER['HTTP_HOST'] == 'www.celones.pl')
+    if(!isarchaic()) {
+      header("Location: https://celones.pl" . $_SERVER['REQUEST_URI'], true, 301);
+      exit();
+    }
       
   // Wczytaj język
   set_language($ws['Language']);
