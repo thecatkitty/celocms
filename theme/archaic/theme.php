@@ -1,4 +1,6 @@
 <?php
+  header('Content-Type: text/html; charset=US-ASCII');
+  
   function emit_section($section) {
     global $ws;
     
