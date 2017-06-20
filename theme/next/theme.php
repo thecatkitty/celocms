@@ -2,7 +2,7 @@
   function emit_section($section) {
     global $ws;
     
-    echo '<section id="' . $section->id . '" class="' . $section->classes . '">';
+    echo '<section id="' . $section->id . '" class="row ' . $section->classes . '">';
     echo file_get_contents($section->filename);
     echo '</section>';
   }
