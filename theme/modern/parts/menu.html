@@ -1,25 +1,21 @@
-  <!-- Navigation
+  <!-- Header
   ================================================== -->
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-   <div class="container">
-    <div class="navbar-header">
-     <button class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar" type="button" data-toggle="collapse" data-target="#navbar">
-      <span class="sr-only">{lang.modern.nav.show}/{lang.modern.menu.hide}</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-     </button>
-     <a class="navbar-brand" href="{PATH_ROOT}home">
-      <img alt="{lang.logo-alt}" src="{PATH_ROOT}{PATH_IMAGES}logo.png" />
-      <span class="hiddem-xs">{lang.logo-alt}</span>
-     </a>
-    </div>
+  <header>
 
-    <div class="collapse navbar-collapse" id="navbar">
-     <ul class="nav navbar-nav text-uppercase">{?MainMenu ?} {?SocialMenu icon?}</ul>
-     </ul>
-    </div><!--/.nav-collapse -->
+   <div class="logo">
+     <a href="{PATH_ROOT}home"><img alt="{lang.logo-alt}" src="{PATH_ROOT}{PATH_IMAGES}logo.png"></a>
    </div>
-  </nav>
 
+   <nav id="nav-wrap">     
+     
+    <a class="mobile-btn" href="#nav-wrap" title="{lang.modern.nav.show}">{lang.modern.menu.show}</a>
+    <a class="mobile-btn" href="#" title="{lang.modern.nav.hide}">{lang.modern.menu.hide}</a>     
+
+    <ul id="nav" class="nav">{?MainMenu ?}</ul> <!-- end #nav -->
+
+   </nav> <!-- end #nav-wrap -->
+
+   <ul class="header-social">{?SocialMenu icon?}</ul>
+
+  </header> <!-- Header End -->
   <a name="top" id="top"></a>
