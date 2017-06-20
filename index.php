@@ -118,7 +118,7 @@
     $content = endify($content);
     $content = compress_html($content);
     
-    if($ws['Page'] != 'error')
+    if($ws['Page'] != 'error' && $ws['Theme'] != 'next')
       put_cached($uri, $lang['code'], $ws['Theme'], $content);
   }
   
