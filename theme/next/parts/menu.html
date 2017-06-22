@@ -1,26 +1,29 @@
   <!-- Navigation
   ================================================== -->
+  <a name="top" id="top"></a>
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
    <div class="container">
     <div class="navbar-header">
      <button class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="sr-only">{lang.modern.nav.show}/{lang.modern.menu.hide}</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+      <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
      </button>
      <a class="navbar-brand" href="{PATH_ROOT}home">
-      <img alt="{lang.logo-alt}" src="{PATH_ROOT}{PATH_IMAGES}logo.png" />
-      <span class="hiddem-xs">{lang.logo-alt}</span>
+      <img class="visible-sm" alt="{lang.logo-alt}" src="{PATH_ROOT}{PATH_IMAGES}logo.png" />
+      <img class="hidden-sm" alt="{lang.logo-alt}" src="{PATH_ROOT}{PATH_IMAGES}logo-wide.png" />
      </a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbar">
-     <ul class="nav navbar-nav text-uppercase">{?MainMenu ?} {?SocialMenu icon?}</ul>
-     </ul>
-    </div><!--/.nav-collapse -->
+     <ul class="nav navbar-nav text-uppercase">{?MainMenu ?}</ul>
+     <ul class="nav navbar-nav navbar-right">{?SocialMenu icon?}</ul>
+    </div>
+   </div>
+
+   <div class="container hidden-xs" id="pagenavbar">
+     <ul class="nav navbar-nav text-uppercase">{?PageMenu ?}</ul>
    </div>
   </nav>
 
-  <a name="top" id="top"></a>
-  <main class="container">
+  <main>

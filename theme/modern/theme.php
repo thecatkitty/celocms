@@ -71,4 +71,9 @@
     }
     return $ret;
   };
+
+  $ws['ThemeConsts'] = array(
+    'halfwidth' => 'six columns',
+    'fullwidth' => 'twelve columns'
+  );
 ?>

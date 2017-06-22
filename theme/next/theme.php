@@ -2,7 +2,7 @@
   function emit_section($section) {
     global $ws;
     
-    echo '<section id="' . $section->id . '" class="row ' . $section->classes . '">';
+    echo '<section id="' . $section->id . '" class="container ' . $section->classes . '">';
     echo file_get_contents($section->filename);
     echo '</section>';
   }
@@ -21,10 +21,7 @@
       $add = '';
       if($item['href'] == $ws['Page']) $add = ' class="thispage"';
       $ret .= '<li' . $add . '><a href="' . $ws['PATH_ROOT'] . $item['href'] . '">' .$item['title'] . '</a></li>';
-      if($add != '') $ret .= '{?PageMenu ?}';
     }
-    if(!strpos($ret, '{?PageMenu ?}'))
-      $ret .= '<li class="thispage"><a>' .$page->title . '</a></li>' . '{?PageMenu ?}';
     return $ret;
   };
   
@@ -48,13 +45,17 @@
   $wsp['LangMenu'] = function($str) {
     global $ws;
       
-    $ret = '';
+    $ret = '<div class="dropup">'
+         . '<button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">{lang.language}: {lang.name} <span class="caret"></span></button>'
+         . '<ul class="dropdown-menu">';
+
     $langs = explode('|', $ws['Languages']);
     foreach($langs as $i => $l) {
-      if($i) $ret .= '| ';
       $ll = json_decode(file_get_contents($ws['PATH_LOCALE'] . $l . '.json'), true);
-      $ret .= '<a href="' . $ws['PATH_ROOT'] . $ws['Page'] . '?lang=' . $l . '">' . $ll['name'] . '</a> ';
+      $ret .= '<li class="small"><a href="' . $ws['PATH_ROOT'] . $ws['Page'] . '?lang=' . $l . '">' . $ll['name'] . '</a></li>';
     }
+
+    $ret .= '</ul></div>';
     return $ret;
   };
   
@@ -71,4 +72,9 @@
     }
     return $ret;
   };
+
+  $ws['ThemeConsts'] = array(
+    'halfwidth' => 'col-xs-12 col-sm-6',
+    'fullwidth' => 'col-xs-12'
+  );
 ?>

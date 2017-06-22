@@ -1,0 +1,213 @@
+body {
+  font-family: "lato", Verdana, Tahoma, Arial, sans-serif;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 30px;
+  color: #838C95;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #181D21;
+  font-weight: bold;
+}
+
+a:link, a:visited {
+  color: #00ADEF;
+}
+
+a:hover {
+  color: #181D21;
+  text-decoration: none;
+}
+
+
+.navbar {
+  font-size: 11px;
+  border: 0;
+  box-shadow: 0 0 15px #00ADEF;
+}
+
+.navbar ul.nav li {
+  background: #00ADEF; /* For browsers that do not support gradients */
+  background: #00ADEF -webkit-linear-gradient(#00ADEF, transparent); /* For Safari 5.1 to 6.0 */
+  background: #00ADEF -o-linear-gradient(#00ADEF, transparent); /* For Opera 11.1 to 12.0 */
+  background: #00ADEF -moz-linear-gradient(#00ADEF, transparent); /* For Firefox 3.6 to 15 */
+  background: #00ADEF linear-gradient(#00ADEF, transparent); /* Standard syntax */
+  transition: all 0.5s;
+}
+
+.navbar ul.nav li:hover {
+  background-color: rgba(255, 255, 255, 0.33);
+}
+
+.navbar ul.nav li.thispage, #pagenavbar {
+  background: white;
+}
+
+#pagenavbar {
+  padding-left: 0;
+}
+
+#pagenavbar ul.nav li {
+  background: white; /* For browsers that do not support gradients */
+  background: white -webkit-linear-gradient(white, transparent); /* For Safari 5.1 to 6.0 */
+  background: white -o-linear-gradient(white, transparent); /* For Opera 11.1 to 12.0 */
+  background: white -moz-linear-gradient(white, transparent); /* For Firefox 3.6 to 15 */
+  background: white linear-gradient(white, transparent); /* Standard syntax */
+}
+
+#pagenavbar ul.nav li:hover {
+  background-color: rgba(0, 173, 239, 0.33);
+}
+
+.navbar ul.nav li.thispage a:link, .navbar ul.nav li.thispage a:visited,
+#pagenavbar a:link, #pagenavbar a:visited {
+  color: #00ADEF;
+  transition: all 0.5s;
+}
+
+#pagenavbar .current a:link,
+#pagenavbar .current a:visited,
+#pagenavbar .current a:hover {
+    color: #181D21;
+}
+
+
+@media only screen and (min-width: 768px) {
+  body > main {
+    margin-top: 100px;
+  }
+}
+
+body > main > .container {
+  background-color: white;
+  padding-top: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  body > main > .container { padding-top: 100px; }
+}
+
+.section-head {
+  text-align: center;
+}
+
+body > footer {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+body > footer .footer-logo a {
+  display: block;
+  margin: 12px 0;
+}
+
+body > footer a:link, body > footer a:visited {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body > footer a:hover {
+  color: white;
+}
+
+body > footer h3 {
+  font-size: 13px;
+  line-height: 24px;
+  margin-bottom: 0;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+body > footer ul {
+  padding-left: 0;
+}
+
+body > footer li {
+  list-style: none;
+}
+
+body > footer .dropup {
+  display: inline-block;
+}
+
+body > footer .dropup button {
+  border-color: white;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body > footer .dropup button:hover,
+body > footer .dropup.open button {
+  color: white;
+}
+
+body > footer .dropup a:link,
+body > footer .dropup a:visited,
+body > footer .dropup a:hover {
+  color: #00ADEF;
+}
+
+body > footer .dropup a:hover {
+  background-color: rgba(0, 173, 239, 0.33);
+}
+
+
+#hero {
+  background-color: transparent;
+  padding: 100px 2em 78px 2em;
+  color: white;
+  text-align: center;
+}
+
+#hero h1 {
+  color: white;
+  font-size: 125%;
+}
+
+@media only screen and (min-width: 768px) {
+  #hero h1 { font-size: 200%; }
+}
+
+@media only screen and (min-width: 992px) {
+  #hero h1 { font-size: 250%; }
+}
+
+#hero .hero-image img {
+  filter: drop-shadow(0 3px 3px black);
+  max-width: 90%;
+}
+
+
+.duo-column .feature {
+  margin-top: 30px;
+  margin-bottom: 54px;
+}
+
+.duo-column .feature h3 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+}
+
+
+div.right {
+  float: right;
+  clear: right;
+  text-align: right;
+}
+
+div.left {
+  float: left;
+  clear: left;
+}
+
+div.center {
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
