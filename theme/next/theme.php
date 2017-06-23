@@ -75,6 +75,7 @@
 
   $ws['ThemeConsts'] = array(
     'halfwidth' => 'col-xs-12 col-sm-6',
-    'fullwidth' => 'col-xs-12'
+    'fullwidth' => 'col-xs-12',
+    'button' => 'btn btn-default'
   );
 ?>

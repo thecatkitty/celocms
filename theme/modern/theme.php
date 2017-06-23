@@ -74,6 +74,7 @@
 
   $ws['ThemeConsts'] = array(
     'halfwidth' => 'six columns',
-    'fullwidth' => 'twelve columns'
+    'fullwidth' => 'twelve columns',
+    'button' => 'button'
   );
 ?>
