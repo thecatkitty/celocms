@@ -175,7 +175,7 @@ body > footer .dropup a:hover {
 }
 
 #hero .hero-image img {
-  filter: drop-shadow(0 3px 3px black);
+  filter: drop-shadow(0 3px 3px white);
   max-width: 90%;
 }
 
