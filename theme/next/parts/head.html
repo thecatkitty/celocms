@@ -13,8 +13,6 @@
   <meta name="author" content="{SiteAuthor}" />
   <meta name="generator" content="CeloCMS/1.0 {PHP_OS} PHP/{PHP_VERSION} ({PHP_SERVER})" />
 
-  <style>body > *:not(#preloader) { display: none }</style>
-
   <!-- Mobile Specific Metas
   ================================================== -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -23,12 +21,11 @@
   ================================================== -->
   <link rel="icon" href="{PATH_ROOT}{PATH_IMAGES}favicon.png" />
 
+  <style>
+   #preloader { position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1050; background-color: #00adef; }
+   #status { width: 64px; height: 64px; position: absolute; top: 50%; left: 50%; margin: -32px; }
+   .no-js body > nav, .no-js body > main, .no-js body > footer { display: none; }
+  </style>
  </head>
 
  <body>
-
-  <div id="preloader">   
-   <div id="status">
-    <img src="{PATH_ROOT}{PATH_IMAGES}preloader.gif" height="64" width="64" alt="">
-   </div>
-  </div>

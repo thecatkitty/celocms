@@ -83,11 +83,6 @@ a:hover {
 
 body > main > .container {
   background-color: white;
-  padding-top: 50px;
-}
-
-@media only screen and (min-width: 768px) {
-  body > main > .container { padding-top: 100px; }
 }
 
 .section-head {

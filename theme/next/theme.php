@@ -35,7 +35,9 @@
       $pagemenu = true;
       foreach($page->sections as $i => $section) {
         if($section->short != '') 
-          $ret .= '<li class="local"><a class="smoothscroll" href="#' . $section->id . '">' . $section->short . '</a></li>';
+          $ret .= '<li><a class="smoothscroll" href="#' . $section->id . '">' . $section->short . '</a></li>';
+        else
+          $ret .= '<li class="hidden"><a class="smoothscroll" href="#' . $section->id . '"></a></li>';
       }
     }
     
