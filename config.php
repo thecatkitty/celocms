@@ -16,7 +16,7 @@
     //'Copyright' => '',
     
     // Ustawienia
-    'Theme' => 'modern',
+    'Theme' => 'next',
     'HomePage' => 'home',
     'Languages' => 'pl|en|pl-kociewie|la',
     'Language' => 'pl',
