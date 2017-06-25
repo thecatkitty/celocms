@@ -26,15 +26,21 @@ a:hover {
 .navbar {
   font-size: 11px;
   border: 0;
+  -webkit-box-shadow: 0 0 15px #00ADEF;
+  -o-box-shadow: 0 0 15px #00ADEF;
+  -moz-box-shadow: 0 0 15px #00ADEF;
   box-shadow: 0 0 15px #00ADEF;
 }
 
 .navbar ul.nav li {
-  background: #00ADEF; /* For browsers that do not support gradients */
-  background: #00ADEF -webkit-linear-gradient(#00ADEF, transparent); /* For Safari 5.1 to 6.0 */
-  background: #00ADEF -o-linear-gradient(#00ADEF, transparent); /* For Opera 11.1 to 12.0 */
-  background: #00ADEF -moz-linear-gradient(#00ADEF, transparent); /* For Firefox 3.6 to 15 */
-  background: #00ADEF linear-gradient(#00ADEF, transparent); /* Standard syntax */
+  background: #00ADEF;
+  background: #00ADEF -webkit-linear-gradient(#00ADEF, transparent);
+  background: #00ADEF -o-linear-gradient(#00ADEF, transparent);
+  background: #00ADEF -moz-linear-gradient(#00ADEF, transparent);
+  background: #00ADEF linear-gradient(#00ADEF, transparent);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
 
@@ -51,11 +57,11 @@ a:hover {
 }
 
 #pagenavbar ul.nav li {
-  background: white; /* For browsers that do not support gradients */
-  background: white -webkit-linear-gradient(white, transparent); /* For Safari 5.1 to 6.0 */
-  background: white -o-linear-gradient(white, transparent); /* For Opera 11.1 to 12.0 */
-  background: white -moz-linear-gradient(white, transparent); /* For Firefox 3.6 to 15 */
-  background: white linear-gradient(white, transparent); /* Standard syntax */
+  background: white;
+  background: white -webkit-linear-gradient(white, transparent);
+  background: white -o-linear-gradient(white, transparent);
+  background: white -moz-linear-gradient(white, transparent);
+  background: white linear-gradient(white, transparent);
 }
 
 #pagenavbar ul.nav li:hover {
@@ -65,6 +71,9 @@ a:hover {
 .navbar ul.nav li.thispage a:link, .navbar ul.nav li.thispage a:visited,
 #pagenavbar a:link, #pagenavbar a:visited {
   color: #00ADEF;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
 
@@ -170,6 +179,9 @@ body > footer .dropup a:hover {
 }
 
 #hero .hero-image img {
+  -webkit-filter: drop-shadow(0 3px 3px white);
+  -o-filter: drop-shadow(0 3px 3px white);
+  -moz-filter: drop-shadow(0 3px 3px white);
   filter: drop-shadow(0 3px 3px white);
   max-width: 90%;
 }
