@@ -1,0 +1,27 @@
+{
+  "SiteName": "<Overriden by locale file>",
+  "SiteAuthor": "Mateusz Karcz",
+
+  "Contact": "contact(at)example.com",
+  "Social": {
+    "facebook": "https://www.facebook.com/example"
+  },
+  
+  "FooterText": "<Overriden by locale file>",
+  "Copyright": "<Overriden by locale file>",
+
+  "Theme": "next",
+  "HomePage": "home",
+  "Languages": "pl|en",
+  "Language": "en",
+  "Timezone": "Europe/Warsaw",
+  "CacheTime": 18000,
+
+  "PATH_CORE": "core/",
+  "PATH_IMAGES": "images/",
+  "PATH_SCRIPTS": "js/",
+  "PATH_CONTENT": "text/",
+  "PATH_THEME": "theme/",
+  "PATH_LOCALE": "locale/",
+  "PATH_CACHE": "cache/"
+}

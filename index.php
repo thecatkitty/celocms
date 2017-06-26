@@ -6,10 +6,12 @@
   $uri = $_SERVER['REQUEST_URI'];
   
   // Wczytaj konfigurację
-  require_once('config.php');
+  $ws = json_decode(file_get_contents('config.json'), true);
+  $ws['PATH_ROOT'] = str_replace('index.php', '', $_SERVER['PHP_SELF']);
   $ws['PHP_VERSION'] = phpversion();
   $ws['PHP_SERVER'] = explode(' ', $_SERVER['SERVER_SOFTWARE'])[0];
   $ws['PHP_OS'] = explode(' ', $_SERVER['SERVER_SOFTWARE'])[1];
+  date_default_timezone_set($ws['Timezone']);
   
   // Wczytaj moduły
   $dir = opendir($ws['PATH_CORE']);
