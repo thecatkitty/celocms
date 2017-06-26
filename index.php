@@ -21,13 +21,13 @@
 
   // Przekieruj na połączenie szyfrowane
   if($_SERVER['HTTP_HOST'] == 'www.celones.pl')
-    if(!isarchaic()) {
+    if(!session_archaic_agent()) {
       header("Location: https://celones.pl" . $_SERVER['REQUEST_URI'], true, 301);
       exit();
     }
       
   // Wczytaj język
-  set_language($ws['Language']);
+  localizer_set_language($ws['Language']);
   if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     $acc_langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     $langs = explode('|', $ws['Languages']);
@@ -35,16 +35,16 @@
       $al = preg_replace('/^([a-z]{2,3})(-[a-zA-Z]+)*$/', '$1', $al);
       foreach($langs as $l) {
         if($al == $l) {
-          set_language($al);
+          localizer_set_language($al);
           break;
         }
       }
     }
   }
-  if(nachama('lang')) set_language(get_nachama('lang'));
+  if(session_forced('lang')) localizer_set_language(session_get_forced('lang'));
       
   // Wczytaj motyw
-  $ws['Theme'] = get_nachama('theme', isarchaic() ? 'archaic' : $ws['Theme']);
+  $ws['Theme'] = session_get_forced('theme', session_archaic_agent() ? 'archaic' : $ws['Theme']);
   $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
   if(file_exists($ws['ThemePath'] . 'theme.php'))
     require_once($ws['ThemePath'] . 'theme.php');
@@ -64,12 +64,12 @@
   
   // Wczytaj pamięć podręczną
   $uri = $ws['Page'];
-  if(in_cache($uri, $lang['code'], $ws['Theme']))
-    $content = get_cached($uri, $lang['code'], $ws['Theme']);
+  if(cacher_cached($uri, $lang['code'], $ws['Theme']))
+    $content = cacher_get($uri, $lang['code'], $ws['Theme']);
   
   else {
     // Wczytaj menu
-    load_menu();
+    menu_load();
 
     // Wczytaj treść strony
     try {
@@ -108,20 +108,20 @@
     echo file_get_contents($ws['ThemePath'] . 'parts/menu.html');
   
     foreach($page->sections as $section)
-      emit_section($section);
+      theme_section($section);
   
     echo file_get_contents($ws['ThemePath'] . 'parts/footer.html');
     echo file_get_contents($ws['ThemePath'] . 'parts/end.html');
   
     // Przetwórz wyjście
     $content = ob_get_clean();
-    $content = transclude($content);
-    $content = localize($content);
-    $content = endify($content);
-    $content = compress_html($content);
+    $content = trasncluder_process($content);
+    $content = localizer_process($content);
+    $content = theme_endify($content);
+    $content = compressor_minimize_html($content);
     
     if($ws['Page'] != 'error' && $ws['Theme'] != 'next')
-      put_cached($uri, $lang['code'], $ws['Theme'], $content);
+      cacher_put($uri, $lang['code'], $ws['Theme'], $content);
   }
   
   echo $content;

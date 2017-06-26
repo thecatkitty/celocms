@@ -1,5 +1,5 @@
 <?php
-  function emit_section($section) {
+  function theme_section($section) {
     global $ws;
     
     echo '<section id="' . $section->id . '" class="' . $section->classes . '">';
@@ -7,7 +7,7 @@
     echo '</section>';
   }
   
-  function endify($doc) {
+  function theme_endify($doc) {
     return $doc;
   }
   

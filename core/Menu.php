@@ -1,7 +1,7 @@
 <?php
   $menu = array();
   
-  function load_menu() {
+  function menu_load() {
     global $ws;
     global $lang;
     global $menu;

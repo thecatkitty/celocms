@@ -46,7 +46,7 @@
             fclose($file);
           }
         }
-		ksort($this->sections);
+		    ksort($this->sections);
       } else {
         $title = '';
         $desc = '';

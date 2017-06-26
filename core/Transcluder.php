@@ -1,5 +1,5 @@
 <?php
-  function transclude($doc) {
+  function trasncluder_process($doc) {
     // Przetwórz funkcje.
     $pattern = '/\{\?(\w+) (.*)\?\}/';
     while(preg_match($pattern, $doc)) {
@@ -38,6 +38,6 @@
       }
     }
     
-    return preg_match('/\{[^\s][^\.]*\}/', $doc) ? transclude($doc) : $doc;
+    return preg_match('/\{[^\s][^\.]*\}/', $doc) ? trasncluder_process($doc) : $doc;
   }
 ?>

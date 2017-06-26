@@ -1,16 +1,16 @@
 <?php
-  function nachama($name) {
+  function session_forced($name) {
     return isset($_GET[$name]) || isset($_SESSION[$name]);
   }
 
-  function get_nachama($name, $default = false) {
-    if(!nachama($name)) return $default;
+  function session_get_forced($name, $default = false) {
+    if(!session_forced($name)) return $default;
     if(isset($_GET[$name]))
       $_SESSION[$name] = $_GET[$name];
     return $_SESSION[$name];
   }
   
-  function isarchaic() {
+  function session_archaic_agent() {
     if($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0')
       return true;
 

@@ -1,7 +1,7 @@
 <?php
   header('Content-Type: text/html; charset=US-ASCII');
   
-  function emit_section($section) {
+  function theme_section($section) {
     global $ws;
     
     echo '<a name="' . $section->id . '"></a>';
@@ -12,7 +12,7 @@
   }
   
   require_once('dediacritizer.php');
-  function endify($doc) {
+  function theme_endify($doc) {
     // Usuń "ogonki"
     $doc = str_remove_diacritics($doc);
     

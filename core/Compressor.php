@@ -1,5 +1,5 @@
 <?php
-  function compress_html($html) {
+  function compressor_minimize_html($html) {
     // Usuń zbędne dodatkowe spacje
     $pattern = '/\s\s+/s';
     while(preg_match($pattern, $html))
