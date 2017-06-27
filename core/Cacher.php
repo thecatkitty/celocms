@@ -19,11 +19,10 @@
   }
   
   function cacher_put($pagename, $language, $theme, $doc) {
-    global $lang;
     $filename = cacher_get_filename($pagename, $language, $theme);
     if(file_exists($filename)) unlink($filename);
-    $doc .= "\r\n" . '<!-- ' . $lang['cached'];
-    $doc .= date(' j ') . $lang['months']['genitive'][date('n')-1] . date(' o, H:i:s T');
+    $doc .= "\r\n" . '<!-- ' . $ws['lang']['cached'];
+    $doc .= date(' j ') . $ws['lang']['months']['genitive'][date('n')-1] . date(' o, H:i:s T');
     $doc .= '. -->';
     file_put_contents($filename, $doc);
   }

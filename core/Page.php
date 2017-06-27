@@ -8,16 +8,15 @@
     
     public function __construct() {
       global $ws;
-      global $lang;
       
       if(func_num_args()) {
         $id = func_get_arg(0);
         if(strpos($id, '.') === false)
-          $this->path = $ws['PATH_CONTENT'] . $lang['code'] . '/' . $id . '/';
+          $this->path = $ws['PATH_CONTENT'] . $ws['lang']['code'] . '/' . $id . '/';
         else throw new HttpError(403);
       
         if(!file_exists($this->path))
-          $this->path = str_replace('/' . $lang['code'] . '/', '/' . $ws['Language'] . '/', $this->path);
+          $this->path = str_replace('/' . $ws['lang']['code'] . '/', '/' . $ws['Language'] . '/', $this->path);
         if(!file_exists($this->path)) throw new HttpError(404);
       
         $desc = json_decode(file_get_contents($this->path . 'page.json'), true);

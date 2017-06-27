@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "show": "Indicem dillatare",
+    "hide": "Indicem collabi"
+  },
+  "nav": {
+    "show": "Navigationem dillatare",
+    "hide": "Navigationem collabi"
+  },
+  "designedby": "Designatus propter"
+}

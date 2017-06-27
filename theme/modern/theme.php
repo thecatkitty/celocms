@@ -72,7 +72,7 @@
     return $ret;
   };
 
-  $ws['ThemeConsts'] = array(
+  $ws['theme'] = array(
     'halfwidth' => 'six columns',
     'fullwidth' => 'twelve columns',
     'button' => 'button'

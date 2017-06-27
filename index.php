@@ -27,7 +27,7 @@
     }
       
   // Wczytaj język
-  localizer_set_language($ws['Language']);
+  localizer_load_language($ws['Language']);
   if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     $acc_langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     $langs = explode('|', $ws['Languages']);
@@ -35,13 +35,13 @@
       $al = preg_replace('/^([a-z]{2,3})(-[a-zA-Z]+)*$/', '$1', $al);
       foreach($langs as $l) {
         if($al == $l) {
-          localizer_set_language($al);
+          localizer_load_language($al);
           break;
         }
       }
     }
   }
-  if(session_forced('lang')) localizer_set_language(session_get_forced('lang'));
+  if(session_forced('lang')) localizer_load_language(session_get_forced('lang'));
       
   // Wczytaj motyw
   $ws['Theme'] = session_get_forced('theme', session_archaic_agent() ? 'archaic' : $ws['Theme']);
@@ -64,8 +64,8 @@
   
   // Wczytaj pamięć podręczną
   $uri = $ws['Page'];
-  if(cacher_cached($uri, $lang['code'], $ws['Theme']))
-    $content = cacher_get($uri, $lang['code'], $ws['Theme']);
+  if(cacher_cached($uri, $ws['lang']['code'], $ws['Theme']))
+    $content = cacher_get($uri, $ws['lang']['code'], $ws['Theme']);
   
   else {
     // Wczytaj menu
@@ -91,7 +91,7 @@
     if(isset($ws['ErrorCode'])) {
       $page = new Page;
       $ws['Page'] = 'error';
-      $ws['PageTitle'] = '{lang.error}';
+      $ws['PageTitle'] = '{{lang.error}}';
       $ws['PageDescription'] = $ws['ErrorCode'] . ': ' . $ws['ErrorMessage'];
     
       $page->sections[0] = new Section;
@@ -122,10 +122,10 @@
     $content = compressor_minimize_html($content);
     
     if($ws['Page'] != 'error' && $ws['Theme'] != 'next')
-      cacher_put($uri, $lang['code'], $ws['Theme'], $content);
+      cacher_put($uri, $ws['lang']['code'], $ws['Theme'], $content);
   }
   
   echo $content;
 ?>
 
-<!-- <?=$lang['generated']?> <?=round(microtime()-$t_start, 5)?> <?=$lang['milliseconds']?>. -->
+<!-- <?=$ws['lang']['generated']?> <?=round(microtime()-$t_start, 5)?> <?=$ws['lang']['milliseconds']?>. -->

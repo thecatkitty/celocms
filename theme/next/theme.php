@@ -48,7 +48,7 @@
     global $ws;
       
     $ret = '<div class="dropup">'
-         . '<button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">{lang.language}: {lang.name} <span class="caret"></span></button>'
+         . '<button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">{{lang.language}}: {{lang.name}} <span class="caret"></span></button>'
          . '<ul class="dropdown-menu">';
 
     $langs = explode('|', $ws['Languages']);
@@ -75,7 +75,7 @@
     return $ret;
   };
 
-  $ws['ThemeConsts'] = array(
+  $ws['theme'] = array(
     'halfwidth' => 'col-xs-12 col-sm-6',
     'fullwidth' => 'col-xs-12',
     'button' => 'btn btn-default'
