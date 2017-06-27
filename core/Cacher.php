@@ -19,6 +19,8 @@
   }
   
   function cacher_put($pagename, $language, $theme, $doc) {
+    global $ws;
+    
     $filename = cacher_get_filename($pagename, $language, $theme);
     if(file_exists($filename)) unlink($filename);
     $doc .= "\r\n" . '<!-- ' . $ws['lang']['cached'];

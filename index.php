@@ -25,6 +25,9 @@
       header("Location: https://celones.pl" . $_SERVER['REQUEST_URI'], true, 301);
       exit();
     }
+
+  // Ustaw tryb
+  $ws['Cache'] = session_get_forced('cache', true);
       
   // Wczytaj język
   localizer_load_language($ws['Language']);
@@ -64,7 +67,7 @@
   
   // Wczytaj pamięć podręczną
   $uri = $ws['Page'];
-  if(cacher_cached($uri, $ws['lang']['code'], $ws['Theme']))
+  if($ws['Cache'] && cacher_cached($uri, $ws['lang']['code'], $ws['Theme']))
     $content = cacher_get($uri, $ws['lang']['code'], $ws['Theme']);
   
   else {
@@ -109,9 +112,6 @@
   
     foreach($page->sections as $section)
       theme_section($section);
-    echo '<pre class="container">';
-    var_dump($ws);
-    echo '</pre>';
     
     echo file_get_contents($ws['ThemePath'] . 'parts/footer.html');
     echo file_get_contents($ws['ThemePath'] . 'parts/end.html');
@@ -123,7 +123,7 @@
     $content = theme_process($content);
     $content = compressor_minimize_html($content);
     
-    if($ws['Page'] != 'error' && $ws['Theme'] != 'next')
+    if($ws['Page'] != 'error' && $ws['Cache'])
       cacher_put($uri, $ws['lang']['code'], $ws['Theme'], $content);
   }
   
