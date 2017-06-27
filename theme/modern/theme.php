@@ -7,11 +7,11 @@
     echo '</section>';
   }
   
-  function theme_endify($doc) {
+  function theme_process($doc) {
     return $doc;
   }
   
-  $wsp['MainMenu'] = function($param) {
+  $wspex['MainMenu'] = function($param) {
     global $page;
     global $ws;
     global $menu;
@@ -29,7 +29,7 @@
   };
   
   $pagemenu = false;
-  $wsp['PageMenu'] = function($param) {
+  $wspex['PageMenu'] = function($param) {
     global $page;
     global $pagemenu;
     
@@ -45,7 +45,7 @@
     return $ret;
   };
   
-  $wsp['LangMenu'] = function($str) {
+  $wspex['LangMenu'] = function($str) {
     global $ws;
       
     $ret = '';
@@ -58,7 +58,7 @@
     return $ret;
   };
   
-  $wsp['SocialMenu'] = function($param) {
+  $wspex['SocialMenu'] = function($param) {
     global $ws;
     
     $ret = '';

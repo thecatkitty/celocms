@@ -23,5 +23,6 @@
   "PATH_CONTENT": "text/",
   "PATH_THEME": "theme/",
   "PATH_LOCALE": "locale/",
-  "PATH_CACHE": "cache/"
+  "PATH_CACHE": "cache/",
+  "PATH_PLUGINS": "plugins/"
 }

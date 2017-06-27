@@ -114,10 +114,11 @@
     echo file_get_contents($ws['ThemePath'] . 'parts/end.html');
   
     // Przetwórz wyjście
+    parser_initialize();
     $content = ob_get_clean();
-    $content = trasncluder_process($content);
+    $content = parser_process($content);
     $content = localizer_process($content);
-    $content = theme_endify($content);
+    $content = theme_process($content);
     $content = compressor_minimize_html($content);
     
     if($ws['Page'] != 'error' && $ws['Theme'] != 'next')

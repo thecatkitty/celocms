@@ -12,7 +12,7 @@
   }
   
   require_once('dediacritizer.php');
-  function theme_endify($doc) {
+  function theme_process($doc) {
     // Usuń "ogonki"
     $doc = str_remove_diacritics($doc);
     
@@ -40,7 +40,7 @@
     return $doc;
   }
   
-  $wsp['MainMenu'] = function($param) {
+  $wspex['MainMenu'] = function($param) {
     global $page;
     global $ws;
     global $menu;
@@ -53,7 +53,7 @@
     return $ret;
   };
   
-  $wsp['PageMenu'] = function($param) {
+  $wspex['PageMenu'] = function($param) {
     global $page;
     
     $ret = '';
@@ -71,7 +71,7 @@
     return $ret;
   };
   
-  $wsp['LangMenu'] = function($str) {
+  $wspex['LangMenu'] = function($str) {
     global $ws;
       
     $ret = '';

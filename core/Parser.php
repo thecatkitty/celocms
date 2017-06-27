@@ -1,14 +1,29 @@
 <?php
-  function trasncluder_process($doc) {
-    // Przetwórz funkcje.
+  $wspex = array();
+  
+  function parser_initialize() {
+    global $wspex;
+    
+    // Załaduj rozszerzenia parsera.
+    $dir = opendir($ws['PATH_PLUGINS'] . 'parser');
+    while($filename = readdir($dir))
+      if(preg_match('/^(\w+).php$/', $filename, $matches)) {
+        include_once($ws['PATH_PLUGINS'] . 'parser/' . $matches[1] . '.php');
+
+        $wspex[$pex_name] = $pex_handler;
+      }
+  }
+  
+  function parser_process($doc) {
+    // Przetwórz wywołania rozszerzeń parsera.
     $pattern = '/\{\?(\w+) (.*)\?\}/';
     while(preg_match($pattern, $doc)) {
       $doc = preg_replace_callback($pattern, function ($matches) {
-        global $wsp;
+        global $wspex;
         
         $name = $matches[1];
 	  
-        if(isset($wsp[$name])) return call_user_func($wsp[$name], $matches[2]);
+        if(isset($wspex[$name])) return call_user_func($wspex[$name], $matches[2]);
         return '&#123;?' . $name . ' ' . $matches[2] . '?&#125;';
       }, $doc);
     }
@@ -38,6 +53,6 @@
       }
     }
     
-    return preg_match('/\{[^\s][^\.]*\}/', $doc) ? trasncluder_process($doc) : $doc;
+    return preg_match('/\{[^\s][^\.]*\}/', $doc) ? parser_process($doc) : $doc;
   }
 ?>
