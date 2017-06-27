@@ -1,0 +1,3 @@
+<?php
+  $wspf = array();
+?>

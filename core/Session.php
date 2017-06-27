@@ -1,16 +1,18 @@
 <?php
-  function session_forced($name) {
+  namespace Session;
+
+  function is_forced($name) {
     return isset($_GET[$name]) || isset($_SESSION[$name]);
   }
 
-  function session_get_forced($name, $default = false) {
-    if(!session_forced($name)) return $default;
+  function get_forced($name, $default = false) {
+    if(!is_forced($name)) return $default;
     if(isset($_GET[$name]))
       $_SESSION[$name] = $_GET[$name];
     return $_SESSION[$name];
   }
   
-  function session_archaic_agent() {
+  function archaic_agent() {
     if($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0')
       return true;
 

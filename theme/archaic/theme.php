@@ -1,7 +1,9 @@
 <?php
+  namespace Theme;
+  
   header('Content-Type: text/html; charset=US-ASCII');
   
-  function theme_section($section) {
+  function section($section) {
     global $ws;
     
     echo '<a name="' . $section->id . '"></a>';
@@ -12,7 +14,7 @@
   }
   
   require_once('dediacritizer.php');
-  function theme_process($doc) {
+  function process($doc) {
     // Usuń "ogonki"
     $doc = str_remove_diacritics($doc);
     
@@ -43,10 +45,9 @@
   $wspf['MainMenu'] = function($param) {
     global $page;
     global $ws;
-    global $menu;
     
     $ret = '';
-    foreach($menu as $i => $item) {
+    foreach($ws['menu'] as $i => $item) {
       if($i) $ret .= ' | ';
       $ret .= '<a href="' . $ws['PATH_ROOT'] . $item['href'] . '">' . $item['title'] . '</a>';
     }

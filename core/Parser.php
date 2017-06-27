@@ -1,21 +1,34 @@
-<?php
-  $wspf = array();
-  
-  function parser_initialize() {
+<?php  
+  namespace Parser;
+
+  function initialize() {
     global $ws;
     global $wspf;
     
     // Załaduj rozszerzenia parsera.
-    $dir = opendir($ws['PATH_PLUGINS'] . 'parser');
+    $dir = opendir($ws['PATH_PLUGINS'] . 'Parser');
     while($filename = readdir($dir))
       if(preg_match('/^(\w+).php$/', $filename, $matches)) {
-        include_once($ws['PATH_PLUGINS'] . 'parser/' . $matches[1] . '.php');
+        include_once($ws['PATH_PLUGINS'] . 'Parser/' . $matches[1] . '.php');
 
         $wspf[$pf_name] = $pf_handler;
       }
   }
   
-  function parser_process($doc) {
+  function get_value($arr, $path) {
+    $toks = explode('.', $path);
+
+    $dest = $arr;
+    $finalKey = array_pop($toks);
+    foreach ($toks as $key) {
+      if(isset($dest[$key]))
+        $dest = $dest[$key];
+      else return NULL;
+    }
+    return $dest[$finalKey];
+  }
+  
+  function process($doc) {
     // Przetwórz wywołania funkcyj parsera.
     $pattern = '/\{\{#(?P<name>\w+): (?P<args>.*)\}\}/';
     while(preg_match($pattern, $doc)) {
@@ -36,12 +49,12 @@
       $doc = preg_replace_callback($pattern, function ($matches) {
         $name = $matches[1];
         global $ws;
-        $value = get_dotted_value($ws, $matches['path']);
+        $value = get_value($ws, $matches['path']);
         if(isset($value)) return $value;
 	      return '&#123;&#123;' . $matches['path'] . '&#125;&#125;';
       }, $doc);
     }
     
-    return preg_match('/\{\{[^\s][^\.]*\}\}/', $doc) ? parser_process($doc) : $doc;
+    return preg_match('/\{\{[^\s][^\.]*\}\}/', $doc) ? process($doc) : $doc;
   }
 ?>

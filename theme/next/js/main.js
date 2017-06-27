@@ -15,7 +15,7 @@
     $("#status").fadeOut("slow"); 
 
     // will fade out the whole DIV that covers the website. 
-    $("#preloader").delay(500).fadeOut("slow");//.remove();
+    $("#preloader").delay(500).fadeOut("slow").remove();
 
       
     $('#hero .hero-image img').addClass("animated fadeInUpBig"); 

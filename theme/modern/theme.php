@@ -1,5 +1,7 @@
 <?php
-  function theme_section($section) {
+  namespace Theme;
+  
+  function section($section) {
     global $ws;
     
     echo '<section id="' . $section->id . '" class="' . $section->classes . '">';
@@ -7,17 +9,16 @@
     echo '</section>';
   }
   
-  function theme_process($doc) {
+  function process($doc) {
     return $doc;
   }
   
   $wspf['MainMenu'] = function($param) {
     global $page;
     global $ws;
-    global $menu;
     
     $ret = '';
-    foreach($menu as $item) {
+    foreach($ws['menu'] as $item) {
       $add = '';
       if($item['href'] == $ws['Page']) $add = ' class="thispage"';
       $ret .= '<li' . $add . '><a href="' . $ws['PATH_ROOT'] . $item['href'] . '">' .$item['title'] . '</a></li>';

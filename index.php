@@ -21,16 +21,26 @@
 
   // Przekieruj na połączenie szyfrowane
   if($_SERVER['HTTP_HOST'] == 'www.celones.pl')
-    if(!session_archaic_agent()) {
+    if(!Session\archaic_agent()) {
       header("Location: https://celones.pl" . $_SERVER['REQUEST_URI'], true, 301);
       exit();
     }
 
+  // Wczytaj wtyczki
+  $dir = opendir($ws['PATH_PLUGINS']);
+  while($filename = readdir($dir)) {
+    $filepath = $ws['PATH_PLUGINS'] . $filename;
+    if(is_dir($filepath) && $filename[0] != '.') {
+      $filepath .= '/plugin.php';
+      if(file_exists($filepath)) include_once($filepath);
+    }
+  }
+
   // Ustaw tryb pamięci podręcznej
-  $ws['Cache'] = session_get_forced('cache', true);
+  $ws['Cache'] = Session\get_forced('cache', true);
       
   // Wczytaj język
-  localizer_load_language($ws['Language']);
+  Localizer\load_language($ws['Language']);
   if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     $acc_langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
     $langs = explode('|', $ws['Languages']);
@@ -38,16 +48,16 @@
       $al = preg_replace('/^([a-z]{2,3})(-[a-zA-Z]+)*$/', '$1', $al);
       foreach($langs as $l) {
         if($al == $l) {
-          localizer_load_language($al);
+          Localizer\load_language($al);
           break;
         }
       }
     }
   }
-  if(session_forced('lang')) localizer_load_language(session_get_forced('lang'));
+  if(Session\is_forced('lang')) Localizer\load_language(Session\get_forced('lang'));
       
   // Wczytaj motyw
-  $ws['Theme'] = session_get_forced('theme', session_archaic_agent() ? 'archaic' : $ws['Theme']);
+  $ws['Theme'] = Session\get_forced('theme', Session\archaic_agent() ? 'archaic' : $ws['Theme']);
   $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
   if(!file_exists($ws['ThemePath'] . 'theme.php')) {
     $ws['Theme'] = 'archaic';
@@ -72,7 +82,7 @@
   
   else {
     // Wczytaj menu
-    menu_load();
+    Menu\load();
 
     // Wczytaj treść strony
     try {
@@ -111,16 +121,16 @@
     echo file_get_contents($ws['ThemePath'] . 'parts/menu.html');
   
     foreach($page->sections as $section)
-      theme_section($section);
+      Theme\section($section);
     
     echo file_get_contents($ws['ThemePath'] . 'parts/footer.html');
     echo file_get_contents($ws['ThemePath'] . 'parts/end.html');
   
     // Przetwórz wyjście
-    parser_initialize();
+    Parser\initialize();
     $content = ob_get_clean();
-    $content = parser_process($content);
-    $content = theme_process($content);
+    $content = Parser\process($content);
+    $content = Theme\process($content);
     $content = compressor_minimize_html($content);
     
     if($ws['Page'] != 'error' && $ws['Cache'])

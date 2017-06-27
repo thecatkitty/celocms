@@ -1,7 +1,9 @@
 <?php
+  namespace Localizer;
+  
   $ws['lang'] = array();
   
-  function localizer_load_language($code) {
+  function load_language($code) {
     global $ws;
     
     if(!preg_match('/^[\w-]+$/', $code)) return false;
