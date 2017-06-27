@@ -1,7 +1,7 @@
 <?php
-  $pex_name = 'notarchaic';
+  $pf_name = 'notarchaic';
 
-  $pex_handler = function($arg) {
+  $pf_handler = function($arg) {
     global $ws;
       
     if($ws['Theme'] != 'archaic') return $arg;

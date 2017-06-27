@@ -40,7 +40,7 @@
     return $doc;
   }
   
-  $wspex['MainMenu'] = function($param) {
+  $wspf['MainMenu'] = function($param) {
     global $page;
     global $ws;
     global $menu;
@@ -53,7 +53,7 @@
     return $ret;
   };
   
-  $wspex['PageMenu'] = function($param) {
+  $wspf['PageMenu'] = function($param) {
     global $page;
     
     $ret = '';
@@ -71,7 +71,7 @@
     return $ret;
   };
   
-  $wspex['LangMenu'] = function($str) {
+  $wspf['LangMenu'] = function($str) {
     global $ws;
       
     $ret = '';

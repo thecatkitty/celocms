@@ -11,7 +11,7 @@
     return $doc;
   }
   
-  $wspex['MainMenu'] = function($param) {
+  $wspf['MainMenu'] = function($param) {
     global $page;
     global $ws;
     global $menu;
@@ -21,15 +21,15 @@
       $add = '';
       if($item['href'] == $ws['Page']) $add = ' class="thispage"';
       $ret .= '<li' . $add . '><a href="' . $ws['PATH_ROOT'] . $item['href'] . '">' .$item['title'] . '</a></li>';
-      if($add != '') $ret .= '{?PageMenu ?}';
+      if($add != '') $ret .= '{{#PageMenu: }}';
     }
-    if(!strpos($ret, '{?PageMenu ?}'))
-      $ret .= '<li class="thispage"><a>' .$page->title . '</a></li>' . '{?PageMenu ?}';
+    if(!strpos($ret, '{{#PageMenu: }}'))
+      $ret .= '<li class="thispage"><a>' .$page->title . '</a></li>' . '{{#PageMenu: }}';
     return $ret;
   };
   
   $pagemenu = false;
-  $wspex['PageMenu'] = function($param) {
+  $wspf['PageMenu'] = function($param) {
     global $page;
     global $pagemenu;
     
@@ -45,7 +45,7 @@
     return $ret;
   };
   
-  $wspex['LangMenu'] = function($str) {
+  $wspf['LangMenu'] = function($str) {
     global $ws;
       
     $ret = '';
@@ -58,7 +58,7 @@
     return $ret;
   };
   
-  $wspex['SocialMenu'] = function($param) {
+  $wspf['SocialMenu'] = function($param) {
     global $ws;
     
     $ret = '';

@@ -3,7 +3,7 @@
   <header>
 
    <div class="logo">
-     <a href="{PATH_ROOT}home"><img alt="{lang.logo-alt}" src="{PATH_ROOT}{PATH_IMAGES}logo.png"></a>
+     <a href="{{PATH_ROOT}}home"><img alt="{lang.logo-alt}" src="{{PATH_ROOT}}{{PATH_IMAGES}}logo.png"></a>
    </div>
 
    <nav id="nav-wrap">     
@@ -11,11 +11,11 @@
     <a class="mobile-btn" href="#nav-wrap" title="{lang.modern.nav.show}">{lang.modern.menu.show}</a>
     <a class="mobile-btn" href="#" title="{lang.modern.nav.hide}">{lang.modern.menu.hide}</a>     
 
-    <ul id="nav" class="nav">{?MainMenu ?}</ul> <!-- end #nav -->
+    <ul id="nav" class="nav">{{#MainMenu: }}</ul> <!-- end #nav -->
 
    </nav> <!-- end #nav-wrap -->
 
-   <ul class="header-social">{?SocialMenu icon?}</ul>
+   <ul class="header-social">{{#SocialMenu: icon}}</ul>
 
   </header> <!-- Header End -->
   <a name="top" id="top"></a>

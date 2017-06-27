@@ -8,11 +8,11 @@
 
      <div class="footer-logo">
       <a href="#">
-       <img src="{PATH_ROOT}{ThemePath}img/footer-logo.png" alt="" />
+       <img src="{{PATH_ROOT}}{{ThemePath}}img/footer-logo.png" alt="" />
       </a>
      </div>
 
-     {FooterText}
+     {{FooterText}}
 
     </div>
 
@@ -22,25 +22,25 @@
 
       <div class="columns">
        <h3 class="address">{lang.address}</h3>
-       {Address}
+       {{Address}}
       </div>
 
       <div class="columns">
        <h3 class="social">{lang.social}</h3>
-       <ul>{?SocialMenu text?}</ul>
+       <ul>{{#SocialMenu: text}}</ul>
       </div>
 
       <div class="columns last">
        <h3 class="contact">{lang.contact}</h3>
-       <p>{Contact}</p>
+       <p>{{Contact}}</p>
       </div>
 
      </div> <!-- Nested Row End -->
 
     </div>
 
-    <p class="copyright">{Copyright} | {lang.modern.designedby} <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></p>
-    <p class="copyright" style="margin-top: 1em">{?LangMenu ?}</p>
+    <p class="copyright">{{Copyright}} | {lang.modern.designedby} <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></p>
+    <p class="copyright" style="margin-top: 1em">{{#LangMenu: }}</p>
 
     <div id="go-top">
      <a class="smoothscroll" title="{lang.top}" href="#top"><i class="icon-up-open"></i></a>

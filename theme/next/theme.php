@@ -11,7 +11,7 @@
     return $doc;
   }
   
-  $wspex['MainMenu'] = function($param) {
+  $wspf['MainMenu'] = function($param) {
     global $page;
     global $ws;
     global $menu;
@@ -26,7 +26,7 @@
   };
   
   $pagemenu = false;
-  $wspex['PageMenu'] = function($param) {
+  $wspf['PageMenu'] = function($param) {
     global $page;
     global $pagemenu;
     
@@ -44,7 +44,7 @@
     return $ret;
   };
   
-  $wspex['LangMenu'] = function($str) {
+  $wspf['LangMenu'] = function($str) {
     global $ws;
       
     $ret = '<div class="dropup">'
@@ -61,7 +61,7 @@
     return $ret;
   };
   
-  $wspex['SocialMenu'] = function($param) {
+  $wspf['SocialMenu'] = function($param) {
     global $ws;
     
     $ret = '';

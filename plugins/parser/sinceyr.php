@@ -1,7 +1,7 @@
 <?php
-  $pex_name = 'sinceyr';
+  $pf_name = 'sinceyr';
 
-  $pex_handler = function($arg) {
+  $pf_handler = function($arg) {
     if($arg == date('Y')) return $arg;
     return $arg . '-' . date('Y');
   };
