@@ -26,7 +26,7 @@
       exit();
     }
 
-  // Ustaw tryb
+  // Ustaw tryb pamięci podręcznej
   $ws['Cache'] = session_get_forced('cache', true);
       
   // Wczytaj język
