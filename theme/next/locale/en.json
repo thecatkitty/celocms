@@ -1,4 +1,6 @@
 {
-  "jumpto": "Jump to",
-  "top": "top"
+  "menu": {
+    "show": "Show menu",
+    "hide": "Hide menu"
+  }
 }

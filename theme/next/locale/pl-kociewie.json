@@ -1,4 +1,6 @@
 {
-  "jumpto": "Idzie do",
-  "top": "do góry"
+  "menu": {
+    "show": "Pokazuj lista strón",
+    "hide": "Ukrywaj lista strón"
+  }
 }

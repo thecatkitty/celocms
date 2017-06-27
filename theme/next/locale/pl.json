@@ -1,4 +1,6 @@
 {
-  "jumpto": "Skocz do",
-  "top": "do góry"
+  "menu": {
+    "show": "Pokaż menu",
+    "hide": "Ukryj menu"
+  }
 }

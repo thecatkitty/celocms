@@ -46,14 +46,14 @@
   // Wczytaj motyw
   $ws['Theme'] = session_get_forced('theme', session_archaic_agent() ? 'archaic' : $ws['Theme']);
   $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
-  if(file_exists($ws['ThemePath'] . 'theme.php'))
-    require_once($ws['ThemePath'] . 'theme.php');
-  else {
+  if(!file_exists($ws['ThemePath'] . 'theme.php')) {
     $ws['Theme'] = 'archaic';
     $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
     $_SESSION['theme'] = 'archaic';
-    require_once($ws['ThemePath'] . 'theme.php');
   }
+  require_once($ws['ThemePath'] . 'theme.php');
+  if(file_exists($ws['ThemePath'] . 'locale/' . $ws['Language'] . '.json'))
+    $ws['lang'][$ws['Theme']] = json_decode(file_get_contents($ws['ThemePath'] . 'locale/' . $ws['Language'] . '.json'), true);
   
   // Wczytaj stronę
   if(isset($_SERVER['REDIRECT_URL'])) {
@@ -109,7 +109,10 @@
   
     foreach($page->sections as $section)
       theme_section($section);
-  
+    echo '<pre class="container">';
+    var_dump($ws);
+    echo '</pre>';
+    
     echo file_get_contents($ws['ThemePath'] . 'parts/footer.html');
     echo file_get_contents($ws['ThemePath'] . 'parts/end.html');
   
@@ -117,7 +120,6 @@
     parser_initialize();
     $content = ob_get_clean();
     $content = parser_process($content);
-    $content = localizer_process($content);
     $content = theme_process($content);
     $content = compressor_minimize_html($content);
     

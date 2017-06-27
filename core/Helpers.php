@@ -11,7 +11,7 @@
   }
 
   function get_dotted_value($arr, $path) {
-    $toks = explode('.', $str);
+    $toks = explode('.', $path);
     return get_tree_value($arr, $toks);
   }
 ?>
