@@ -8,7 +8,7 @@
   // Wczytaj konfigurację
   $ws = json_decode(file_get_contents('config.json'), true);
   $ws['PATH_ROOT'] = str_replace('index.php', '', $_SERVER['PHP_SELF']);
-  $ws['PHP_VERSION'] = phpversion();
+  $ws['PHP_VERSION'] = explode('-', phpversion())[0];
   $ws['PHP_SERVER'] = explode(' ', $_SERVER['SERVER_SOFTWARE'])[0];
   $ws['PHP_OS'] = explode(' ', $_SERVER['SERVER_SOFTWARE'])[1];
   date_default_timezone_set($ws['Timezone']);
