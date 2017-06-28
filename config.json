@@ -15,7 +15,6 @@
   "Languages": [ "pl", "en" ],
   "Language": "en",
   "Timezone": "Europe/Warsaw",
-  "CacheTime": 18000,
 
   "PATH_CORE": "core/",
   "PATH_IMAGES": "images/",
