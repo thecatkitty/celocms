@@ -1,8 +1,10 @@
 <?php
   $pf_name = 'sinceyr';
 
-  $pf_handler = function($arg) {
-    if($arg == date('Y')) return $arg;
-    return $arg . '-' . date('Y');
+  $pf_handler = function($args) {
+    $year = $args[0];
+    
+    if($year == date('Y')) return $year;
+    return $year . '-' . date('Y');
   };
 ?>

@@ -56,15 +56,16 @@
     return $ret;
   };
   
-  $wspf['SocialMenu'] = function($param) {
+  $wspf['SocialMenu'] = function($args) {
     global $ws;
     
     $ret = '';
+    $style = $args[0];
     foreach($ws['Social'] as $name => $href) {
       $ret .= '<li><a href="' . $href . '">';
-      if($param == 'icon') $ret .= '<i class="fa fa-';
+      if($style == 'icon') $ret .= '<i class="fa fa-';
       $ret .= $name;
-      if($param == 'icon') $ret .= '"></i>';
+      if($style == 'icon') $ret .= '"></i>';
       $ret .= '</a></li>';
     }
     return $ret;

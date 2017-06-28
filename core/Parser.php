@@ -37,10 +37,11 @@
         global $wspf;
         
         $name = $matches['name'];
+        $args = explode('|', $matches['args']);
 	  
-        if(isset($wspf[$matches['name']]))
-          return call_user_func($wspf[$matches['name']], $matches['args']);
-        return '&#123;&#123;#' . $matches['name'] . ': ' . $matches['args'] . '&#125;&#125;';
+        if(isset($wspf[$name]))
+          return call_user_func($wspf[$name], $args);
+        return '&#123;&#123;#' . $name . ': ' . $matches['args'] . '&#125;&#125;';
       }, $content);
     }
 
