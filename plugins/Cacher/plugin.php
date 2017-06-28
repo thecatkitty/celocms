@@ -1,4 +1,30 @@
 <?php
+  $pl_initialize = function() {
+    global $ws;
+
+    $ws['Cache'] = Session\get_forced('cache', true);
+  };
+
+  $pl_render = function() {
+    global $ws;
+    global $content;
+
+    if($ws['Cache'] && cacher_cached($uri, $ws['lang']['code'], $ws['Theme'])) {
+      $content = cacher_get($uri, $ws['lang']['code'], $ws['Theme']);
+      return true;
+    }
+    return false;
+  };
+
+  $pl_finish = function() {
+    global $ws;
+    global $content;
+
+    if($ws['Page'] != 'error' && $ws['Cache'])
+      cacher_put($ws['Page'], $ws['lang']['code'], $ws['Theme'], $content);
+  };
+
+
   function cacher_get_filename($pagename, $language, $theme) {
     global $ws;
     return $ws['PATH_CACHE'] . str_replace('/', '_', $pagename) . '$' . $language . '$' . $theme . '.html';

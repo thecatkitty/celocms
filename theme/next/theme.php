@@ -9,9 +9,7 @@
     echo '</section>';
   }
   
-  function process($doc) {
-    return $doc;
-  }
+  function process() { }
   
   $wspf['MainMenu'] = function($param) {
     global $page;
@@ -52,8 +50,7 @@
          . '<button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown">{{lang.language}}: {{lang.name}} <span class="caret"></span></button>'
          . '<ul class="dropdown-menu">';
 
-    $langs = explode('|', $ws['Languages']);
-    foreach($langs as $i => $l) {
+    foreach($ws['Languages'] as $i => $l) {
       $ll = json_decode(file_get_contents($ws['PATH_LOCALE'] . $l . '.json'), true);
       $ret .= '<li class="small"><a href="' . $ws['PATH_ROOT'] . $ws['Page'] . '?lang=' . $l . '">' . $ll['name'] . '</a></li>';
     }

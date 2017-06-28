@@ -19,4 +19,14 @@
       
     return true;
   }
+
+  function language_available($code) {
+    global $ws;
+
+    if(!preg_match('/^[\w-]+$/', $code)) return false;
+    $filename = $ws['PATH_LOCALE'] . $code . '.json';
+    if(!file_exists($filename)) return false;
+
+    return true;
+  }
 ?>

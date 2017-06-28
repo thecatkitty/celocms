@@ -14,32 +14,31 @@
   }
   
   require_once('dediacritizer.php');
-  function process($doc) {
+  function process() {
+    global $content;
+
     // Usuń "ogonki"
-    $doc = str_remove_diacritics($doc);
+    $content = str_remove_diacritics($content);
     
     // Zamień odwołania do PNG na GIF
     $pattern = '/<img([^<>]*) src="([\w\/-]+)\.png"/';
-    while(preg_match($pattern, $doc))
-      $doc = preg_replace($pattern, '<img${1} src="${2}.gif"', $doc);
+    while(preg_match($pattern, $content))
+      $content = preg_replace($pattern, '<img${1} src="${2}.gif"', $content);
     
     // Zamień tagi XHTML na HTML
     $pattern = '/<(img|br)([^<>]*)\/>/';
-    while(preg_match($pattern, $doc))
-      $doc = preg_replace($pattern, '<${1}${2}>', $doc);
+    while(preg_match($pattern, $content))
+      $content = preg_replace($pattern, '<${1}${2}>', $content);
 
     // Usuń niewspierane atrybuty
     $pattern = '/<([^<>]+) ((lang|id|class|title)="[^<>"]+")([^<>]*)>/s';
-    while(preg_match($pattern, $doc))
-      $doc = preg_replace($pattern, '<${1}${4}>', $doc);
+    while(preg_match($pattern, $content))
+      $content = preg_replace($pattern, '<${1}${4}>', $content);
     
     // Usuń obramowania linków obrazkowych
     $pattern = '/(<a[^<>]* href="[^<>]+"[^<>]*>.*<img[^<>]*)[^"]>(.*)<\/a>/s';
-    while(preg_match($pattern, $doc))
-      $doc = preg_replace($pattern, '${1} border="0">${2}</a>', $doc);
-    
-    // Zwróć wynik
-    return $doc;
+    while(preg_match($pattern, $content))
+      $content = preg_replace($pattern, '${1} border="0">${2}</a>', $content);
   }
   
   $wspf['MainMenu'] = function($param) {
@@ -76,8 +75,7 @@
     global $ws;
       
     $ret = '';
-    $langs = explode('|', $ws['Languages']);
-    foreach($langs as $i => $l) {
+    foreach($ws['Languages'] as $i => $l) {
       if($i) $ret .= '| ';
       $ret .= '<a href="' . $ws['PATH_ROOT'] . $ws['Page'] . '?lang=' . $l . '">' . $l . '</a> ';
     }

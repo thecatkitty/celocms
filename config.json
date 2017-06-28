@@ -12,7 +12,7 @@
 
   "Theme": "next",
   "HomePage": "home",
-  "Languages": "pl|en",
+  "Languages": [ "pl", "en" ],
   "Language": "en",
   "Timezone": "Europe/Warsaw",
   "CacheTime": 18000,
@@ -24,5 +24,11 @@
   "PATH_THEME": "theme/",
   "PATH_LOCALE": "locale/",
   "PATH_CACHE": "cache/",
-  "PATH_PLUGINS": "plugins/"
+  "PATH_PLUGINS": "plugins/",
+
+  "Plugins": {
+    "initialize": [ "SslRedirect", "LangNegotiator", "ThemeNegotiator", "Cacher" ],
+    "render": [ "Cacher" ],
+    "finish": [ "Compressor", "Cacher" ]
+  }
 }

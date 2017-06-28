@@ -19,51 +19,14 @@
     if(preg_match('/^(\w+).php$/', $filename, $matches))
       require_once($ws['PATH_CORE'] . $matches[1] . '.php');
 
-  // Przekieruj na połączenie szyfrowane
-  if($_SERVER['HTTP_HOST'] == 'www.celones.pl')
-    if(!Session\archaic_agent()) {
-      header("Location: https://celones.pl" . $_SERVER['REQUEST_URI'], true, 301);
-      exit();
-    }
-
   // Wczytaj wtyczki
-  $dir = opendir($ws['PATH_PLUGINS']);
-  while($filename = readdir($dir)) {
-    $filepath = $ws['PATH_PLUGINS'] . $filename;
-    if(is_dir($filepath) && $filename[0] != '.') {
-      $filepath .= '/plugin.php';
-      if(file_exists($filepath)) include_once($filepath);
-    }
-  }
-
-  // Ustaw tryb pamięci podręcznej
-  $ws['Cache'] = Session\get_forced('cache', true);
+  Plugins\load();
+  Plugins\initialize();
       
   // Wczytaj język
   Localizer\load_language($ws['Language']);
-  if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-    $acc_langs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-    $langs = explode('|', $ws['Languages']);
-    foreach($acc_langs as $al) {
-      $al = preg_replace('/^([a-z]{2,3})(-[a-zA-Z]+)*$/', '$1', $al);
-      foreach($langs as $l) {
-        if($al == $l) {
-          Localizer\load_language($al);
-          break;
-        }
-      }
-    }
-  }
-  if(Session\is_forced('lang')) Localizer\load_language(Session\get_forced('lang'));
       
   // Wczytaj motyw
-  $ws['Theme'] = Session\get_forced('theme', Session\archaic_agent() ? 'archaic' : $ws['Theme']);
-  $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
-  if(!file_exists($ws['ThemePath'] . 'theme.php')) {
-    $ws['Theme'] = 'archaic';
-    $ws['ThemePath'] = $ws['PATH_THEME'] . $ws['Theme'] . '/';
-    $_SESSION['theme'] = 'archaic';
-  }
   require_once($ws['ThemePath'] . 'theme.php');
   if(file_exists($ws['ThemePath'] . 'locale/' . $ws['Language'] . '.json'))
     $ws['lang'][$ws['Theme']] = json_decode(file_get_contents($ws['ThemePath'] . 'locale/' . $ws['Language'] . '.json'), true);
@@ -74,47 +37,17 @@
     $ws['Page'] = substr($uri, strlen($ws['PATH_ROOT']));
   }
   else $ws['Page'] = $ws['HomePage'];
-  
-  // Wczytaj pamięć podręczną
-  $uri = $ws['Page'];
-  if($ws['Cache'] && cacher_cached($uri, $ws['lang']['code'], $ws['Theme']))
-    $content = cacher_get($uri, $ws['lang']['code'], $ws['Theme']);
-  
-  else {
-    // Wczytaj menu
-    Menu\load();
 
-    // Wczytaj treść strony
-    try {
-      $page = new Page($ws['Page']);
-      $ws['PageTitle'] = $page->title;
-      $ws['PageDescription'] = $page->desc;
-    // Obsłuż błędy HTTP
-    } catch(HttpError $e) {
-      $ws['ErrorCode'] = $e->getCode();
-      $ws['ErrorMessage'] = $e->getMessage();
-    
-      header('HTTP/1.0 ' . $ws['ErrorCode'] . ' ' . $ws['ErrorMessage']);
-    // Obsłuż wyjątki PHP
-    } catch(Exception $e) {
-      $ws['ErrorCode'] = 'PHP Exception';
-      $ws['ErrorMessage'] = '[' . $e->getCode() . '] ' . $e->getMessage();
-    }
+  // Sprawdź, czy nie ma wtyczki odpowiedzialnej za renderowanie
+  if(!Plugins\render()) {
+    // Załaduj stronę i parser
+    Parser\load_extensions();
+    Content\load_menu();
+    $page = Content\load_page($ws['Page']);
+    if(isset($ws['ErrorCode']))
+      $page = Content\load_error();
   
-    if(isset($ws['ErrorCode'])) {
-      $page = new Page;
-      $ws['Page'] = 'error';
-      $ws['PageTitle'] = '{{lang.error}}';
-      $ws['PageDescription'] = $ws['ErrorCode'] . ': ' . $ws['ErrorMessage'];
-    
-      $page->sections[0] = new Section;
-      $page->sections[0]->id = 'error';
-      $page->sections[0]->filename = $ws['PATH_CONTENT'] . 'error.html';
-      $page->sections[0]->short = '';
-      $page->sections[0]->classes = 'alternate';
-    }
-  
-    // Rozpocznij buforowane wyjście
+    // Renderuj surową stronę
     ob_start();
   
     echo file_get_contents($ws['ThemePath'] . 'parts/head.html');
@@ -126,15 +59,12 @@
     echo file_get_contents($ws['ThemePath'] . 'parts/footer.html');
     echo file_get_contents($ws['ThemePath'] . 'parts/end.html');
   
-    // Przetwórz wyjście
-    Parser\initialize();
     $content = ob_get_clean();
-    $content = Parser\process($content);
-    $content = Theme\process($content);
-    $content = compressor_minimize_html($content);
-    
-    if($ws['Page'] != 'error' && $ws['Cache'])
-      cacher_put($uri, $ws['lang']['code'], $ws['Theme'], $content);
+
+    // Przetwórz wyjście
+    Parser\process();
+    Theme\process();
+    Plugins\finish();
   }
   
   echo $content;
