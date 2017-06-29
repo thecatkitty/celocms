@@ -7,10 +7,7 @@
   }
   
   function cached($pagename, $language, $theme) {
-    global $ws;
-    $filename = get_filename($pagename, $language, $theme);
-    if(!file_exists($filename)) return false;
-    return true;
+    return file_exists(get_filename($pagename, $language, $theme));
   }
 
   function stale($pagename, $language, $theme) {
@@ -18,7 +15,7 @@
     $filename = get_filename($pagename, $language, $theme);
     if(!file_exists($filename)) return false;
     
-    $pagepath = $ws['PATH_CONTENT'] . $pagename;
+    $pagepath = $ws['PATH_CONTENT'] . $language . '/' . $pagename;
     if(!file_exists($pagepath)) return true;
     if(!is_dir($pagepath)) return true;
     

@@ -97,7 +97,7 @@
     global $plugins;
 
     foreach($ws['Plugins']['render'] as $pl)
-      if($plugins[$pl]->initialize()) return true;
+      if($plugins[$pl]->render()) return true;
     return false;
   }
   
