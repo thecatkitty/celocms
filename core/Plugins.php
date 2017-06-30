@@ -2,30 +2,17 @@
   namespace Plugins;
   
   class Plugin {
-    public $name;
-    public $version;
-    public $vendor;
-    public $date;
-    public $description;
-    public $url;
-
-    public $cb_initialize;
+    public $package_manifest;
+	
+	public $cb_initialize;
     public $cb_render;
     public $cb_finish;
 
     public function __construct() {
       if(func_num_args()) {
         $filename = func_get_arg(0);
-        if(file_exists($filename)) {
-          $data = json_decode(file_get_contents($filename));
-
-          $this->name = $data->name;
-          $this->version = $data->version;
-          $this->vendor = $data->vendor;
-          $this->date = $data->date;
-          $this->description = $data->description;
-          $this->url = $data->url;
-        }
+        if(file_exists($filename))
+          $this->package_manifest = json_decode(file_get_contents($filename));
       }
     }
 
