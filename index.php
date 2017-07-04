@@ -1,5 +1,5 @@
 <?php
-  $t_start = microtime();
+  $t_start = microtime(true);
   session_start();
   $page = true;
   
@@ -70,4 +70,4 @@
   echo $content;
 ?>
 
-<!-- <?=$ws['lang']['generated']?> <?=round(microtime()-$t_start, 5)?> <?=$ws['lang']['milliseconds']?>. -->
+<!-- <?=$ws['lang']['generated']?> <?=round((microtime(true)-$t_start)*1000, 1)?> <?=$ws['lang']['milliseconds']?>. -->
