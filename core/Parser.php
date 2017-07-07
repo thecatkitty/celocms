@@ -8,7 +8,7 @@
     // Załaduj rozszerzenia parsera.
     $dir = opendir($ws['PATH_PLUGINS'] . 'Parser');
     while($filename = readdir($dir))
-      if(preg_match('/^(\w+).php$/', $filename, $matches)) {
+      if(preg_match('/^(\w+).php$/', $filename, $matches) && $filename != 'plugin.php') {
         include_once($ws['PATH_PLUGINS'] . 'Parser/' . $matches[1] . '.php');
 
         $wspf[$pf_name] = $pf_handler;
