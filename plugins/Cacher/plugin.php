@@ -27,7 +27,7 @@
     global $ws;
     global $content;
 
-    if($ws['Page'] != 'error' && $ws['Cache'] && !Plugin\Cacher\cached($ws['Page'], $ws['lang']['code'], $ws['Theme']))
+    if($ws['Cache'] && !Plugin\Cacher\cached($ws['Page'], $ws['lang']['code'], $ws['Theme']))
       Plugin\Cacher\put($ws['Page'], $ws['lang']['code'], $ws['Theme'], $content);
   };
 ?>

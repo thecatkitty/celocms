@@ -34,6 +34,8 @@
 
   function load_error() {
     global $ws;
+
+    $ws['Cache'] = false;
     
     $p = new \Page;
     $ws['Page'] = 'error';
