@@ -33,6 +33,8 @@
   }
 
   function load_error() {
+    global $ws;
+    
     $p = new \Page;
     $ws['Page'] = 'error';
     $ws['PageTitle'] = '{{lang.error}}';
