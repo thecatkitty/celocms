@@ -160,7 +160,7 @@ body > footer .dropup a:hover {
 
 #hero {
   background-color: transparent;
-  padding: 100px 2em 78px 2em;
+  padding: 100px 2em 0 2em;
   color: white;
   text-align: center;
 }
@@ -179,10 +179,6 @@ body > footer .dropup a:hover {
 }
 
 #hero .hero-image img {
-  -webkit-filter: drop-shadow(0 3px 3px white);
-  -o-filter: drop-shadow(0 3px 3px white);
-  -moz-filter: drop-shadow(0 3px 3px white);
-  filter: drop-shadow(0 3px 3px white);
   max-width: 90%;
 }
 
