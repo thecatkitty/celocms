@@ -16,7 +16,10 @@
     if($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0')
       return true;
 
-    if(!preg_match("/Trident|Gecko|Opera\/9|bot|spider|crawl|slurp|facebook/", $_SERVER['HTTP_USER_AGENT']))
+    if(preg_match('/MSIE [1-8]\.0/'))
+      return true;
+
+    if(!preg_match('/Trident|Gecko|Opera\/9|bot|spider|crawl|slurp|facebook/', $_SERVER['HTTP_USER_AGENT']))
       return true;
 
     return false;
