@@ -22,10 +22,12 @@
   <link rel="icon" href="{{PATH_ROOT}}{{PATH_IMAGES}}favicon.png" />
   <meta property="og:image" content="{{PATH_ROOT}}{{PATH_IMAGES}}og_logo.png" />
 
+  <script>document.documentElement.classList.add('yet')</script>
   <style>
-   #preloader { position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1050; background-color: #00adef; }
-   #status { width: 64px; height: 64px; position: absolute; top: 50%; left: 50%; margin: -32px; }
-   .no-js body > nav, .no-js body > main, .no-js body > footer { display: none; }
+   .no-js #preloader { display: none; }
+   .no-js.yet #preloader { display: block; position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 1050; background-color: #00adef; }
+   .no-js.yet #status { width: 64px; height: 64px; position: absolute; top: 50%; left: 50%; margin: -32px; }
+   .no-js.yet body > nav, .no-js.yet body > main, .no-js.yet body > footer { display: none; }
   </style>
  </head>
 
