@@ -4,7 +4,11 @@
 
   "Contact": "contact(at)example.com",
   "Social": {
-    "facebook": "https://www.facebook.com/example"
+    "facebook": "https://www.facebook.com/example",
+    "github": "https://github.com/example",
+    "deviantart": "https://www.deviantart.com/example",
+    "soundcloud": "https://soundcloud.com/example",
+    "twitter": "https://twitter.com/example"
   },
   
   "FooterText": "<Overriden by locale file>",
