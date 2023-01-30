@@ -1,33 +1,33 @@
 <?php
-  require_once('functions.php');
-  
-  $pl_initialize = function() {
-    global $ws;
+require_once('functions.php');
 
-    $ws['Cache'] = Session\get_forced('cache', true);
-  };
+$pl_initialize = function () {
+  global $ws;
 
-  $pl_render = function() {
-    global $ws;
-    global $content;
+  $ws['Cache'] = Session\get_forced('cache', true);
+};
 
-    if($ws['Cache'] && Plugin\Cacher\cached($ws['Page'], $ws['lang']['code'], $ws['Theme'])) {
-      if(Plugin\Cacher\stale($ws['Page'], $ws['lang']['code'], $ws['Theme'])) {
-        Plugin\Cacher\clear($ws['Page'], $ws['lang']['code'], $ws['Theme']);
-        return false;
-      }
-      
-      $content = Plugin\Cacher\get($ws['Page'], $ws['lang']['code'], $ws['Theme']);
-      return true;
+$pl_render = function () {
+  global $ws;
+  global $content;
+
+  if ($ws['Cache'] && Plugin\Cacher\cached($ws['Page'], $ws['lang']['code'], $ws['Theme'])) {
+    if (Plugin\Cacher\stale($ws['Page'], $ws['lang']['code'], $ws['Theme'])) {
+      Plugin\Cacher\clear($ws['Page'], $ws['lang']['code'], $ws['Theme']);
+      return false;
     }
-    return false;
-  };
 
-  $pl_finish = function() {
-    global $ws;
-    global $content;
+    $content = Plugin\Cacher\get($ws['Page'], $ws['lang']['code'], $ws['Theme']);
+    return true;
+  }
+  return false;
+};
 
-    if($ws['Cache'] && !Plugin\Cacher\cached($ws['Page'], $ws['lang']['code'], $ws['Theme']))
-      Plugin\Cacher\put($ws['Page'], $ws['lang']['code'], $ws['Theme'], $content);
-  };
+$pl_finish = function () {
+  global $ws;
+  global $content;
+
+  if ($ws['Cache'] && !Plugin\Cacher\cached($ws['Page'], $ws['lang']['code'], $ws['Theme']))
+    Plugin\Cacher\put($ws['Page'], $ws['lang']['code'], $ws['Theme'], $content);
+};
 ?>
