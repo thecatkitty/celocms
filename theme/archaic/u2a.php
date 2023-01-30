@@ -1,5 +1,5 @@
 <?php
-  $UNICODE_TO_ASCII = array(
+$UNICODE_TO_ASCII = array(
     // Latin-1 Supplement
 	0x00A0 => ' ', '!', 'cent', 'pound', '?', 'yen', '|', 'sect', '?', '(C)', 'a', '&lt;&lt;', '~', ' ', '(R)', '?',
 	          'deg', '+-', '^2', '^3', '\'', 'micro', '?', '.', ',', '^1', 'o', '&gt;&gt;', '1/4', '1/2', '1/4', '?',
@@ -287,5 +287,5 @@
     // 1F780—1F7FF Geometric Shapes Extended 
     // 1F800—1F8FF Supplemental Arrows-C 
     // 1F900—1F9FF Supplemental Symbols and Pictographs 
-  );
+);
 ?>
