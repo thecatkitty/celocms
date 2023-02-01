@@ -1,0 +1,30 @@
+{
+  "code": "en",
+  "name": "English",
+  "months": {
+    "short": [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+    "long": [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+    "genitive": [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+  },
+  
+  "config": {
+    "SiteName": "Example Site",
+    "Address": "John Doe<br />Townsville<br />World",
+    "FooterText": "The quick brown fox jumps over the lazy dog.",
+    "Copyright": "© {{#sinceyr: 2007}} <a href=\"https://catk.it/\">Mateusz Karcz</a>. All rights reserved"
+  },
+  
+  "logo-alt": "Celones",
+  "address": "Address",
+  "contact": "Contact",
+  "social": "Social",
+  "top": "Back to top",
+  "language": "Language",
+  
+  "error": "Error",
+  "error-occurred": "An error occurred.",
+  
+  "cached": "Cached copy generated on",
+  "generated": "Generated in",
+  "milliseconds": "milliseconds"
+}

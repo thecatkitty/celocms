@@ -1,0 +1,30 @@
+{
+  "code": "pl",
+  "name": "polski",
+  "months": {
+    "short": [ "sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru" ],
+    "long": [ "styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień" ],
+    "genitive": [ "stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia" ]
+  },
+  
+  "config": {
+    "SiteName": "Przykładowa Strona",
+    "Address": "John Doe<br />Grodzka Wieś<br />Świat",
+    "FooterText": "Pchnąć w łódź jeża bądź ósm skrzyń fig.",
+    "Copyright": "© {{#sinceyr: 2007}} <a href=\"https://catk.it/\">Mateusz Karcz</a>. Wszelkie prawa zastrzeżone"
+  },
+  
+  "logo-alt": "Celones",
+  "address": "Adres",
+  "contact": "Kontakt",
+  "social": "Społeczność",
+  "top": "Skocz do góry",
+  "language": "Język",
+  
+  "error": "Błąd",
+  "error-occurred": "Wystąpił błąd.",
+  
+  "cached": "Kopia z pamieci podrecznej wygenerowana",
+  "generated": "Wykonano w",
+  "milliseconds": "milisekund"
+}
