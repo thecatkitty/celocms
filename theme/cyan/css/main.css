@@ -5,6 +5,8 @@ body {
   font-weight: 400;
   font-size: 15px;
   line-height: 30px;
+  margin-top: 50px;
+  background-color: #00ADEF;
   color: #838C95;
 }
 
@@ -17,8 +19,9 @@ a:link, a:visited {
   color: #00ADEF;
 }
 
-a:hover {
+a:hover, a:active {
   color: #181D21;
+  transition: 0.5s;
   text-decoration: none;
 }
 
@@ -26,6 +29,7 @@ a:hover {
 .navbar {
   font-size: 11px;
   border: 0;
+  background-color: #00ADEF;
   -webkit-box-shadow: 0 0 15px #00ADEF;
   -o-box-shadow: 0 0 15px #00ADEF;
   -moz-box-shadow: 0 0 15px #00ADEF;
@@ -50,6 +54,10 @@ a:hover {
 
 .navbar ul.nav li.thispage, #pagenavbar {
   background: white;
+}
+
+body > .navbar .navbar-brand, body > .navbar .navbar-text, .navbar .nav a:link, .navbar .nav a:visited {
+  color: white
 }
 
 #pagenavbar {
@@ -98,8 +106,14 @@ body > main > .container {
   text-align: center;
 }
 
+body > header, body > footer {
+  text-align: center;
+}
+
 body > footer {
   color: rgba(255, 255, 255, 0.75);
+  font-size: small;
+  margin-top: 3em;
 }
 
 body > footer .footer-logo a {
@@ -158,6 +172,10 @@ body > footer .dropup a:hover {
 }
 
 
+header > h1 {
+  font-size: 30px
+}
+
 #hero {
   background-color: transparent;
   padding: 100px 2em 0 2em;
@@ -213,4 +231,25 @@ div.center {
   clear: both;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+iframe {
+  max-width: 100% !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: right;
+}
+
+textarea {
+  width: 100%;
 }
