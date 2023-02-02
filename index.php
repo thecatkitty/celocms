@@ -1,4 +1,7 @@
 <?php
+  if(!isset($ws_filename))
+    $ws_filename = 'config.json';
+
   $t_start = microtime(true);
   session_start();
   $page = true;
@@ -6,7 +9,7 @@
   $uri = $_SERVER['REQUEST_URI'];
   
   // Wczytaj konfigurację
-  $ws = json_decode(file_get_contents('config.json'), true);
+  $ws = json_decode(file_get_contents($ws_filename), true);
   $ws['PATH_ROOT'] = str_replace('index.php', '', $_SERVER['PHP_SELF']);
   $ws['PHP_VERSION'] = explode('-', phpversion())[0];
   $ws['PHP_SERVER'] = explode(' ', $_SERVER['SERVER_SOFTWARE'])[0];
