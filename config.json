@@ -28,6 +28,7 @@
   "PATH_LOCALE": "locale/",
   "PATH_CACHE": "cache/",
   "PATH_PLUGINS": "plugins/",
+  "URL_THEME": "theme/",
 
   "Plugins": {
     "initialize": [ "SslRedirect", "LangNegotiator", "ThemeNegotiator", "Cacher" ],
