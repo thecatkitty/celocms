@@ -35,7 +35,7 @@ function process()
 {
   global $content;
   // Przetwórz wywołania funkcyj parsera.
-  $pattern = '/\{\{#(?P<name>\w+): (?P<args>.*)\}\}/';
+  $pattern = '/\{\{#(?P<name>\w+): (?P<args>.*?)\}\}/';
   while (preg_match($pattern, $content)) {
     $content = preg_replace_callback($pattern, function ($matches) {
       global $wspf;
