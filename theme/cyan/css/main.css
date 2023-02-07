@@ -10,16 +10,23 @@ body {
   color: #838C95;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #181D21;
   font-weight: bold;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: #00ADEF;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   color: #181D21;
   transition: 0.5s;
   text-decoration: none;
@@ -30,21 +37,11 @@ a:hover, a:active {
   font-size: 11px;
   border: 0;
   background-color: #00ADEF;
-  -webkit-box-shadow: 0 0 15px #00ADEF;
-  -o-box-shadow: 0 0 15px #00ADEF;
-  -moz-box-shadow: 0 0 15px #00ADEF;
   box-shadow: 0 0 15px #00ADEF;
 }
 
 .navbar ul.nav li {
-  background: #00ADEF;
-  background: #00ADEF -webkit-linear-gradient(#00ADEF, transparent);
-  background: #00ADEF -o-linear-gradient(#00ADEF, transparent);
-  background: #00ADEF -moz-linear-gradient(#00ADEF, transparent);
   background: #00ADEF linear-gradient(#00ADEF, transparent);
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
 
@@ -52,11 +49,15 @@ a:hover, a:active {
   background-color: rgba(255, 255, 255, 0.33);
 }
 
-.navbar ul.nav li.thispage, #pagenavbar {
+.navbar ul.nav li.thispage,
+#pagenavbar {
   background: white;
 }
 
-body > .navbar .navbar-brand, body > .navbar .navbar-text, .navbar .nav a:link, .navbar .nav a:visited {
+body>.navbar .navbar-brand,
+body>.navbar .navbar-text,
+.navbar .nav a:link,
+.navbar .nav a:visited {
   color: white
 }
 
@@ -65,10 +66,6 @@ body > .navbar .navbar-brand, body > .navbar .navbar-text, .navbar .nav a:link, 
 }
 
 #pagenavbar ul.nav li {
-  background: white;
-  background: white -webkit-linear-gradient(white, transparent);
-  background: white -o-linear-gradient(white, transparent);
-  background: white -moz-linear-gradient(white, transparent);
   background: white linear-gradient(white, transparent);
 }
 
@@ -76,29 +73,28 @@ body > .navbar .navbar-brand, body > .navbar .navbar-text, .navbar .nav a:link, 
   background-color: rgba(0, 173, 239, 0.33);
 }
 
-.navbar ul.nav li.thispage a:link, .navbar ul.nav li.thispage a:visited,
-#pagenavbar a:link, #pagenavbar a:visited {
+.navbar ul.nav li.thispage a:link,
+.navbar ul.nav li.thispage a:visited,
+#pagenavbar a:link,
+#pagenavbar a:visited {
   color: #00ADEF;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 #pagenavbar .current a:link,
 #pagenavbar .current a:visited,
 #pagenavbar .current a:hover {
-    color: #181D21;
+  color: #181D21;
 }
 
 
 @media only screen and (min-width: 768px) {
-  body > main {
+  body>main {
     margin-top: 100px;
   }
 }
 
-body > main > .container {
+body>main>.container {
   background-color: white;
 }
 
@@ -106,30 +102,32 @@ body > main > .container {
   text-align: center;
 }
 
-body > header, body > footer {
+body>header,
+body>footer {
   text-align: center;
 }
 
-body > footer {
+body>footer {
   color: rgba(255, 255, 255, 0.75);
   font-size: small;
   margin-top: 3em;
 }
 
-body > footer .footer-logo a {
+body>footer .footer-logo a {
   display: block;
   margin: 12px 0;
 }
 
-body > footer a:link, body > footer a:visited {
+body>footer a:link,
+body>footer a:visited {
   color: rgba(255, 255, 255, 0.5);
 }
 
-body > footer a:hover {
+body>footer a:hover {
   color: white;
 }
 
-body > footer h3 {
+body>footer h3 {
   font-size: 13px;
   line-height: 24px;
   margin-bottom: 0;
@@ -138,41 +136,41 @@ body > footer h3 {
   letter-spacing: 1px;
 }
 
-body > footer ul {
+body>footer ul {
   padding-left: 0;
 }
 
-body > footer li {
+body>footer li {
   list-style: none;
 }
 
-body > footer .dropup {
+body>footer .dropup {
   display: inline-block;
 }
 
-body > footer .dropup button {
+body>footer .dropup button {
   border-color: white;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.5);
 }
 
-body > footer .dropup button:hover,
-body > footer .dropup.open button {
+body>footer .dropup button:hover,
+body>footer .dropup.open button {
   color: white;
 }
 
-body > footer .dropup a:link,
-body > footer .dropup a:visited,
-body > footer .dropup a:hover {
+body>footer .dropup a:link,
+body>footer .dropup a:visited,
+body>footer .dropup a:hover {
   color: #00ADEF;
 }
 
-body > footer .dropup a:hover {
+body>footer .dropup a:hover {
   background-color: rgba(0, 173, 239, 0.33);
 }
 
 
-header > h1 {
+header>h1 {
   font-size: 30px
 }
 
@@ -189,11 +187,15 @@ header > h1 {
 }
 
 @media only screen and (min-width: 768px) {
-  #hero h1 { font-size: 200%; }
+  #hero h1 {
+    font-size: 200%;
+  }
 }
 
 @media only screen and (min-width: 992px) {
-  #hero h1 { font-size: 250%; }
+  #hero h1 {
+    font-size: 250%;
+  }
 }
 
 #hero .hero-image img {
