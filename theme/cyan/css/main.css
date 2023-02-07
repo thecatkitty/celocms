@@ -36,17 +36,17 @@ a:active {
 .navbar {
   font-size: 11px;
   border: 0;
-  background-color: #00ADEF;
-  box-shadow: 0 0 15px #00ADEF;
+  background-color: #00ADEFAA;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 #00ADEF;
 }
 
 .navbar ul.nav li {
-  background: #00ADEF linear-gradient(#00ADEF, transparent);
   transition: all 0.5s;
 }
 
 .navbar ul.nav li:hover {
-  background-color: rgba(255, 255, 255, 0.33);
+  background-color: #FFFFFF55;
 }
 
 .navbar ul.nav li.thispage,
@@ -65,19 +65,16 @@ body>.navbar .navbar-text,
   padding-left: 0;
 }
 
-#pagenavbar ul.nav li {
-  background: white linear-gradient(white, transparent);
-}
-
-#pagenavbar ul.nav li:hover {
-  background-color: rgba(0, 173, 239, 0.33);
-}
-
 .navbar ul.nav li.thispage a:link,
 .navbar ul.nav li.thispage a:visited,
 #pagenavbar a:link,
 #pagenavbar a:visited {
   color: #00ADEF;
+  transition: all 0.5s;
+}
+
+#pagenavbar a:hover {
+  color: black;
   transition: all 0.5s;
 }
 
@@ -108,7 +105,7 @@ body>footer {
 }
 
 body>footer {
-  color: rgba(255, 255, 255, 0.75);
+  color: #FFFFFFCC;
   font-size: small;
   margin-top: 3em;
 }
@@ -120,11 +117,12 @@ body>footer .footer-logo a {
 
 body>footer a:link,
 body>footer a:visited {
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF80;
 }
 
 body>footer a:hover {
-  color: white;
+  color: #FFFFFFCC;
+  text-decoration: underline;
 }
 
 body>footer h3 {
