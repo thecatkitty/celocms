@@ -113,7 +113,7 @@ body>.navbar .navbar-text,
   }
 }
 
-body>main>.container {
+body>main>section {
   background-color: white;
 }
 
@@ -194,9 +194,9 @@ header>h1 {
   font-size: 30px
 }
 
-#hero {
+#hero,
+body>main>section.nobg {
   background-color: transparent;
-  padding: 100px 2em 0 2em;
   color: white;
   text-align: center;
 }
@@ -204,6 +204,15 @@ header>h1 {
 #hero h1 {
   color: white;
   font-size: 125%;
+}
+
+body>main>section.nobg h1,
+body>main>section.nobg h2,
+body>main>section.nobg h3,
+body>main>section.nobg h4,
+body>main>section.nobg h5,
+body>main>section.nobg h6 {
+  color: white;
 }
 
 @media only screen and (min-width: 768px) {
