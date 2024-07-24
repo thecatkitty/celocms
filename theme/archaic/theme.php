@@ -23,7 +23,7 @@ function process()
   $content = str_remove_diacritics($content);
 
   // Zamień odwołania do PNG na GIF
-  $pattern = '/<img([^<>]*) src="([\w\/-]+)\.png"/';
+  $pattern = '/<img([^<>]*) src="([\w\/-]+)\.(jpg|png)"/';
   while (preg_match($pattern, $content))
     $content = preg_replace($pattern, '<img${1} src="${2}.gif"', $content);
 
