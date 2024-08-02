@@ -19,6 +19,14 @@
 
       
     $('#hero .hero-image img').addClass("animated fadeInUpBig"); 
+
+    // Scrolling if loaded with hash
+    if('' != window.location.hash) {
+      $target = $(window.location.hash);
+      $('html, body').stop().animate({
+        'scrollTop': $target.offset().top - 100
+      }, 400);
+    }
   }) 
 
   /*----------------------------------------------------*/
